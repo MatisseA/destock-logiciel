@@ -12,3 +12,17 @@ D:\cours\Dev\C#\Projet\Destock\Destock\obj\Debug\Destock.pdb
 D:\cours\Dev\C#\Projet\Destock\Destock\bin\Debug\MySql.Data.dll
 D:\cours\Dev\C#\Projet\Destock\Destock\bin\Debug\MySql.Data.xml
 D:\cours\Dev\C#\Projet\Destock\Destock\obj\Debug\Destock.Connexion.resources
+D:\cours\Dev\C#\Projet\destock-logiciel\Destock\Destock\bin\Debug\Destock.exe.config
+D:\cours\Dev\C#\Projet\destock-logiciel\Destock\Destock\obj\Debug\Destock.exe
+D:\cours\Dev\C#\Projet\destock-logiciel\Destock\Destock\obj\Debug\Destock.pdb
+D:\cours\Dev\C#\Projet\destock-logiciel\Destock\Destock\obj\Debug\Destock.csprojResolveAssemblyReference.cache
+D:\cours\Dev\C#\Projet\destock-logiciel\Destock\Destock\obj\Debug\Destock.Connexion.resources
+D:\cours\Dev\C#\Projet\destock-logiciel\Destock\Destock\obj\Debug\Destock.FormPrincipale.resources
+D:\cours\Dev\C#\Projet\destock-logiciel\Destock\Destock\obj\Debug\Destock.Inscription.resources
+D:\cours\Dev\C#\Projet\destock-logiciel\Destock\Destock\obj\Debug\Destock.Membre.resources
+D:\cours\Dev\C#\Projet\destock-logiciel\Destock\Destock\obj\Debug\Destock.Properties.Resources.resources
+D:\cours\Dev\C#\Projet\destock-logiciel\Destock\Destock\obj\Debug\Destock.csproj.GenerateResource.Cache
+D:\cours\Dev\C#\Projet\destock-logiciel\Destock\Destock\bin\Debug\Destock.exe
+D:\cours\Dev\C#\Projet\destock-logiciel\Destock\Destock\bin\Debug\Destock.pdb
+D:\cours\Dev\C#\Projet\destock-logiciel\Destock\Destock\bin\Debug\MySql.Data.dll
+D:\cours\Dev\C#\Projet\destock-logiciel\Destock\Destock\bin\Debug\MySql.Data.xml

@@ -30,7 +30,7 @@ namespace Destock
             try
             {
                 // Chaîne de connexion à la base
-                ChaineConnexion = "server=127.0.0.1;port=3306;user=root;database=2017-destock_bdd;encrypt=false";
+                ChaineConnexion = "server=btsinfo-rousseau53.fr;port=33017;user=2017-destock;password=matissepierre;database=2017-destock_bdd;encrypt=false";
                 //Création de la connexion
                 GestConn = new MySqlConnection(ChaineConnexion);
                 CollAdmin = new List<Admin>();
