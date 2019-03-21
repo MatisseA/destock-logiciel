@@ -35,9 +35,9 @@
             this.TSMDeco = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMCréa = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gérerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.annonceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.membreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMgerer = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMAnnonce = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMMembre = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.TSStext = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
@@ -49,7 +49,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
-            this.gérerToolStripMenuItem});
+            this.TSMgerer});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(999, 28);
@@ -96,26 +96,28 @@
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
-            // gérerToolStripMenuItem
+            // TSMgerer
             // 
-            this.gérerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.annonceToolStripMenuItem,
-            this.membreToolStripMenuItem});
-            this.gérerToolStripMenuItem.Name = "gérerToolStripMenuItem";
-            this.gérerToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
-            this.gérerToolStripMenuItem.Text = "Gérer";
+            this.TSMgerer.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMAnnonce,
+            this.TSMMembre});
+            this.TSMgerer.Name = "TSMgerer";
+            this.TSMgerer.Size = new System.Drawing.Size(57, 24);
+            this.TSMgerer.Text = "Gérer";
             // 
-            // annonceToolStripMenuItem
+            // TSMAnnonce
             // 
-            this.annonceToolStripMenuItem.Name = "annonceToolStripMenuItem";
-            this.annonceToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
-            this.annonceToolStripMenuItem.Text = "Annonce";
+            this.TSMAnnonce.Enabled = false;
+            this.TSMAnnonce.Name = "TSMAnnonce";
+            this.TSMAnnonce.Size = new System.Drawing.Size(181, 26);
+            this.TSMAnnonce.Text = "Annonce";
             // 
-            // membreToolStripMenuItem
+            // TSMMembre
             // 
-            this.membreToolStripMenuItem.Name = "membreToolStripMenuItem";
-            this.membreToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
-            this.membreToolStripMenuItem.Text = "Membre";
+            this.TSMMembre.Name = "TSMMembre";
+            this.TSMMembre.Size = new System.Drawing.Size(181, 26);
+            this.TSMMembre.Text = "Membre";
+            this.TSMMembre.Click += new System.EventHandler(this.TSMMembre_Click);
             // 
             // statusStrip1
             // 
@@ -163,13 +165,13 @@
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TSMCréa;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gérerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem annonceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem membreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSMgerer;
         public System.Windows.Forms.ToolStripMenuItem TSMConn;
         public System.Windows.Forms.ToolStripMenuItem TSMDeco;
         private System.Windows.Forms.StatusStrip statusStrip1;
         public System.Windows.Forms.ToolStripStatusLabel TSStext;
+        public System.Windows.Forms.ToolStripMenuItem TSMAnnonce;
+        public System.Windows.Forms.ToolStripMenuItem TSMMembre;
     }
 }
 

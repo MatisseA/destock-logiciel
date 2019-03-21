@@ -119,6 +119,8 @@ namespace Destock
                 {
                     lien.TSMConn.Enabled = false;
                     lien.TSMDeco.Enabled = true;
+                    lien.TSMAnnonce.Enabled = true;
+                    lien.TSMMembre.Enabled = true;
                     lien.TSStext.Text = "Vous êtes connecté en tant que " + CollAdmin[i].nom + " " + CollAdmin[i].prenom;
                     this.Close();
                     MessageBox.Show("Vous êtes connecté");

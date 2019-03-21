@@ -47,10 +47,18 @@ namespace Destock
         {
             TSMConn.Enabled = true;
             TSMDeco.Enabled = false;
+            TSMAnnonce.Enabled = false;
+            TSMMembre.Enabled = false;
             TSStext.Text = "Vous n'êtes pas connecté";
             MessageBox.Show("Vous êtes déconnecté");
         }
 
-        
+        private void TSMMembre_Click(object sender, EventArgs e)
+        {
+            Membre Mafenetre = new Membre(this);
+            Mafenetre.Owner = this;
+            Mafenetre.MdiParent = this;
+            Mafenetre.Show();
+        }
     }
 }
