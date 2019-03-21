@@ -37,12 +37,18 @@ namespace Destock
                 ChargementCollectionAdmin();
 
                 int i = 0;
+                int u = 0;
                 foreach (uneAnnonce laAnnonce in CollAnnonce)
                 {
-                    dataGridViewAnnonce.Rows.Add(laAnnonce.id_annonce.ToString());
-                    i++;
+                    if (laAnnonce.statut.ToString() != "deleted")
+                    {
+                        dataGridViewAnnonce.Rows.Add(laAnnonce.id_annonce.ToString(), laAnnonce.id_membre.ToString(), laAnnonce.titre.ToString(), laAnnonce.prix_actuelle.ToString(), laAnnonce.quantite.ToString(), laAnnonce.date.ToString());
+                        u++;
+                    }
+                        i++;
                 }
-                //TxtNbMembre.Text = i + " membres affichés";
+                label_nb_total.Text = "Nombre total d'annonce:" + i.ToString();
+                label_en_ligne.Text = "Nombre d'annonce en ligne:" + u.ToString();
 
             }
             catch (Exception ex) { MessageBox.Show("Erreur Load : " + ex.Message); }
