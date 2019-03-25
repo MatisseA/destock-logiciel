@@ -42,7 +42,7 @@ namespace Destock
                 {
                     if (laAnnonce.statut.ToString() != "deleted")
                     {
-                        dataGridViewAnnonce.Rows.Add(laAnnonce.id_annonce.ToString(), laAnnonce.id_membre.ToString(), laAnnonce.titre.ToString(), laAnnonce.prix_actuelle.ToString(), laAnnonce.quantite.ToString(), laAnnonce.date.ToString());
+                        dataGridViewAnnonce.Rows.Add(laAnnonce.id_annonce.ToString(), laAnnonce.id_membre.ToString(), laAnnonce.titre.ToString(), laAnnonce.prix_actuelle.ToString() + "€", laAnnonce.quantite.ToString(), laAnnonce.date.ToString());
                         u++;
                     }
                         i++;
@@ -114,6 +114,11 @@ namespace Destock
             {
                 MessageBox.Show("Erreur : " + ex.Message);
             }
+        }
+
+        private void dataGridViewAnnonce_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
