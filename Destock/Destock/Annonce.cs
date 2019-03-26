@@ -121,14 +121,64 @@ namespace Destock
             progressBar_chargement.Visible = false;
         }
 
-        private void dataGridViewAnnonce_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+            String ReqSqlFiltre;
+            if (textBox_titre.Text != "")
+            {
+                if(textBox_id.Text != "")
+                {
+                    ReqSqlFiltre = "SELECT * FROM annonce WHERE TITRE_ANNC='" + textBox_titre.Text + "' AND ID_ANNC='"+ textBox_id.Text +"' ORDER BY ID_ANNC";
+                }
+                else
+                {
+                    ReqSqlFiltre = "SELECT * FROM annonce WHERE TITRE_ANNC='" + textBox_titre.Text + "' ORDER BY ID_ANNC";
+                }
+            }
+            else
+            {
+                if (textBox_id.Text != "")
+                {
+                    ReqSqlFiltre = "SELECT * FROM annonce WHERE ID_ANNC='" + textBox_id.Text + "' ORDER BY ID_ANNC";
+                }
+                else
+                {
+                    ReqSqlFiltre = "SELECT * FROM annonce ORDER BY ID_ANNC";
+                }
+            }
+            progressBar_chargement.Visible = true;
+            progressBar_chargement.Value = 0;
+            CollAnnonce.Clear();
+            MySqlCommand MaCommandeFiltre = new MySqlCommand(ReqSqlFiltre, GestConn);
+            //Déclaration de Data Reader
+            MySqlDataReader ReaderAnnonceFiltre;
+            //Exécution de la requête
+            ReaderAnnonceFiltre = MaCommandeFiltre.ExecuteReader();
+            //Nouveau contact
+            uneAnnonce NouvelAnnonce;
 
+            progressBar_chargement.Value = 15;
+            while (ReaderAnnonceFiltre.Read())
+            {
+                NouvelAnnonce.id_annonce = int.Parse(ReaderAnnonceFiltre["ID_ANNC"].ToString());
+                NouvelAnnonce.id_membre = int.Parse(ReaderAnnonceFiltre["ID_MEMBRE"].ToString());
+                NouvelAnnonce.titre = (ReaderAnnonceFiltre["TITRE_ANNC"].ToString());
+                NouvelAnnonce.description = (ReaderAnnonceFiltre["DESC_ANNC"].ToString());
+                NouvelAnnonce.image = (ReaderAnnonceFiltre["IMAGE_ANNC"].ToString());
+                NouvelAnnonce.prix_depart = Convert.ToDouble(ReaderAnnonceFiltre["PRIXDEP_ANNC"].ToString());
+                NouvelAnnonce.prix_actuelle = Convert.ToDouble(ReaderAnnonceFiltre["PRIXACT_ANNC"].ToString());
+                NouvelAnnonce.quantite = int.Parse(ReaderAnnonceFiltre["QTE_ANNC"].ToString());
+                NouvelAnnonce.date = (ReaderAnnonceFiltre["DATE_ANNC"].ToString());
+                NouvelAnnonce.type = (ReaderAnnonceFiltre["TYPE_ANNC"].ToString());
+                NouvelAnnonce.statut = (ReaderAnnonceFiltre["STATUT_ANNC"].ToString());
+                NouvelAnnonce.unite = (ReaderAnnonceFiltre["UNITE_ANNC"].ToString());
+
+                CollAnnonce.Add(NouvelAnnonce);
+            }
+
+            ReaderAnnonceFiltre.Close();
+            GestConn.Close();
         }
 
-        private void label_nb_total_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
