@@ -76,6 +76,8 @@ namespace Destock
         {
             try
             {
+                progressBar_chargement.Visible = true;
+                progressBar_chargement.Value = 0;
                 CollAnnonce.Clear();
                 //Ouverture connexion
                 GestConn.Open();
@@ -89,6 +91,7 @@ namespace Destock
                 //Nouveau contact
                 uneAnnonce NouvelAnnonce;
 
+                progressBar_chargement.Value = 15;
                 while (ReaderAnnonce.Read())
                 {
                     NouvelAnnonce.id_annonce =      int.Parse(ReaderAnnonce["ID_ANNC"].ToString());
@@ -114,9 +117,16 @@ namespace Destock
             {
                 MessageBox.Show("Erreur : " + ex.Message);
             }
+            progressBar_chargement.Value = 100;
+            progressBar_chargement.Visible = false;
         }
 
         private void dataGridViewAnnonce_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label_nb_total_Click(object sender, EventArgs e)
         {
 
         }
