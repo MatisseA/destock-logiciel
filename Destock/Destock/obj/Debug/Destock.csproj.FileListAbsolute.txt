@@ -42,3 +42,4 @@ C:\Users\Gevyoo\Desktop\projet_Destock\destock-logiciel\Destock\Destock\obj\Debu
 C:\Users\Gevyoo\Desktop\projet_Destock\destock-logiciel\Destock\Destock\obj\Debug\Destock.exe
 C:\Users\Gevyoo\Desktop\projet_Destock\destock-logiciel\Destock\Destock\obj\Debug\Destock.pdb
 C:\Users\Gevyoo\Desktop\projet_Destock\destock-logiciel\Destock\Destock\obj\Debug\Destock.Annonce.resources
+D:\cours\Dev\C#\Projet\destock-logiciel\Destock\Destock\obj\Debug\Destock.Annonce.resources
