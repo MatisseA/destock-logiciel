@@ -32,12 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Annonce));
             this.dataGridViewAnnonce = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_MEMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TITRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRIX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QUANTITE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label_nb_total = new System.Windows.Forms.Label();
             this.label_en_ligne = new System.Windows.Forms.Label();
             this.progressBar_chargement = new System.Windows.Forms.ProgressBar();
@@ -52,6 +46,12 @@
             this.checkBox_prix = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VENDEUR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TITRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRIX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QUANTITE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnnonce)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_prix_min)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_prix_max)).BeginInit();
@@ -72,7 +72,7 @@
             this.dataGridViewAnnonce.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAnnonce.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.ID_MEMBRE,
+            this.VENDEUR,
             this.TITRE,
             this.PRIX,
             this.QUANTITE,
@@ -89,42 +89,6 @@
             this.dataGridViewAnnonce.Name = "dataGridViewAnnonce";
             this.dataGridViewAnnonce.Size = new System.Drawing.Size(747, 545);
             this.dataGridViewAnnonce.TabIndex = 0;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Width = 43;
-            // 
-            // ID_MEMBRE
-            // 
-            this.ID_MEMBRE.HeaderText = "ID MEMBRE";
-            this.ID_MEMBRE.Name = "ID_MEMBRE";
-            this.ID_MEMBRE.Width = 93;
-            // 
-            // TITRE
-            // 
-            this.TITRE.HeaderText = "TITRE";
-            this.TITRE.Name = "TITRE";
-            this.TITRE.Width = 64;
-            // 
-            // PRIX
-            // 
-            this.PRIX.HeaderText = "PRIX";
-            this.PRIX.Name = "PRIX";
-            this.PRIX.Width = 57;
-            // 
-            // QUANTITE
-            // 
-            this.QUANTITE.HeaderText = "QUANTITE";
-            this.QUANTITE.Name = "QUANTITE";
-            this.QUANTITE.Width = 87;
-            // 
-            // DATE
-            // 
-            this.DATE.HeaderText = "DATE";
-            this.DATE.Name = "DATE";
-            this.DATE.Width = 61;
             // 
             // label_nb_total
             // 
@@ -280,6 +244,42 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "€";
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Width = 43;
+            // 
+            // VENDEUR
+            // 
+            this.VENDEUR.HeaderText = "VENDEUR";
+            this.VENDEUR.Name = "VENDEUR";
+            this.VENDEUR.Width = 85;
+            // 
+            // TITRE
+            // 
+            this.TITRE.HeaderText = "TITRE";
+            this.TITRE.Name = "TITRE";
+            this.TITRE.Width = 64;
+            // 
+            // PRIX
+            // 
+            this.PRIX.HeaderText = "PRIX";
+            this.PRIX.Name = "PRIX";
+            this.PRIX.Width = 57;
+            // 
+            // QUANTITE
+            // 
+            this.QUANTITE.HeaderText = "QUANTITE";
+            this.QUANTITE.Name = "QUANTITE";
+            this.QUANTITE.Width = 87;
+            // 
+            // DATE
+            // 
+            this.DATE.HeaderText = "DATE";
+            this.DATE.Name = "DATE";
+            this.DATE.Width = 61;
+            // 
             // Annonce
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,12 +318,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewAnnonce;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID_MEMBRE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TITRE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PRIX;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QUANTITE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DATE;
         private System.Windows.Forms.Label label_nb_total;
         private System.Windows.Forms.Label label_en_ligne;
         private System.Windows.Forms.ProgressBar progressBar_chargement;
@@ -338,5 +332,11 @@
         private System.Windows.Forms.CheckBox checkBox_prix;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VENDEUR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TITRE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRIX;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QUANTITE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DATE;
     }
 }

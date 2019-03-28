@@ -34,8 +34,7 @@ namespace Destock
                 //Création de la connexion
                 GestConn = new MySqlConnection(ChaineConnexion);
                 CollAnnonce = new List<uneAnnonce>();
-                ChargementCollectionAnnonce();
-
+                addListAnnonce(doSql());
                 doRecherche();
 
             }
@@ -57,55 +56,6 @@ namespace Destock
             public String type;
             public String statut;
             public String unite;
-        }
-
-        //Permet de récuperer les informations des Annonces
-        private void ChargementCollectionAnnonce()
-        {
-            try
-            {
-                progressBar_chargement.Visible = true;
-                progressBar_chargement.Value = 0;
-                CollAnnonce.Clear();
-                //Ouverture connexion
-                GestConn.Open();
-                //Requete SQL
-                String ReqSql = "SELECT * FROM annonce ORDER BY ID_ANNC";
-                MySqlCommand MaCommande = new MySqlCommand(ReqSql, GestConn);
-                //Déclaration de Data Reader
-                MySqlDataReader ReaderAnnonce;
-                //Exécution de la requête
-                ReaderAnnonce = MaCommande.ExecuteReader();
-                //Nouveau contact
-                uneAnnonce NouvelAnnonce;
-
-                progressBar_chargement.Value = 15;
-                while (ReaderAnnonce.Read())
-                {
-                    NouvelAnnonce.id_annonce =      int.Parse(ReaderAnnonce["ID_ANNC"].ToString());
-                    NouvelAnnonce.id_membre =       int.Parse(ReaderAnnonce["ID_MEMBRE"].ToString());
-                    NouvelAnnonce.titre =           (ReaderAnnonce["TITRE_ANNC"].ToString());
-                    NouvelAnnonce.description =     (ReaderAnnonce["DESC_ANNC"].ToString());
-                    NouvelAnnonce.image =           (ReaderAnnonce["IMAGE_ANNC"].ToString());
-                    NouvelAnnonce.prix_depart =     Convert.ToDouble(ReaderAnnonce["PRIXDEP_ANNC"].ToString());
-                    NouvelAnnonce.prix_actuelle =   Convert.ToDouble(ReaderAnnonce["PRIXACT_ANNC"].ToString());
-                    NouvelAnnonce.quantite =        int.Parse(ReaderAnnonce["QTE_ANNC"].ToString());
-                    NouvelAnnonce.date =            (ReaderAnnonce["DATE_ANNC"].ToString());
-                    NouvelAnnonce.type =            (ReaderAnnonce["TYPE_ANNC"].ToString());
-                    NouvelAnnonce.statut =          (ReaderAnnonce["STATUT_ANNC"].ToString());
-                    NouvelAnnonce.unite =           (ReaderAnnonce["UNITE_ANNC"].ToString());
-
-                    CollAnnonce.Add(NouvelAnnonce);
-                }
-                ReaderAnnonce.Close();
-                GestConn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erreur : " + ex.Message);
-            }
-            progressBar_chargement.Value = 100;
-            progressBar_chargement.Visible = false;
         }
 
         public String doSql()
@@ -177,52 +127,57 @@ namespace Destock
             return nomEntier;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void addListAnnonce(String requeteSQL)
         {
-            String ReqSqlFiltre;
-            ReqSqlFiltre = doSql();
-
-            progressBar_chargement.Visible = true;
-            progressBar_chargement.Value = 0;
-            CollAnnonce.Clear();
-            dataGridViewAnnonce.Rows.Clear();
-
-
-            GestConn.Open();
-                MySqlCommand MaCommandeFiltre = new MySqlCommand(ReqSqlFiltre, GestConn);
+            try
+            {
+                progressBar_chargement.Visible = true;
+                progressBar_chargement.Value = 0;
+                CollAnnonce.Clear();
+                //Ouverture connexion
+                GestConn.Open();
+                MySqlCommand MaCommande = new MySqlCommand(requeteSQL, GestConn);
                 //Déclaration de Data Reader
-                MySqlDataReader ReaderAnnonceFiltre;
+                MySqlDataReader ReaderAnnonce;
                 //Exécution de la requête
-                ReaderAnnonceFiltre = MaCommandeFiltre.ExecuteReader();
+                ReaderAnnonce = MaCommande.ExecuteReader();
                 //Nouveau contact
                 uneAnnonce NouvelAnnonce;
 
                 progressBar_chargement.Value = 15;
-                while (ReaderAnnonceFiltre.Read())
+                while (ReaderAnnonce.Read())
                 {
-                    NouvelAnnonce.id_annonce = int.Parse(ReaderAnnonceFiltre["ID_ANNC"].ToString());
-                    NouvelAnnonce.id_membre = int.Parse(ReaderAnnonceFiltre["ID_MEMBRE"].ToString());
-                    NouvelAnnonce.titre = (ReaderAnnonceFiltre["TITRE_ANNC"].ToString());
-                    NouvelAnnonce.description = (ReaderAnnonceFiltre["DESC_ANNC"].ToString());
-                    NouvelAnnonce.image = (ReaderAnnonceFiltre["IMAGE_ANNC"].ToString());
-                    NouvelAnnonce.prix_depart = Convert.ToDouble(ReaderAnnonceFiltre["PRIXDEP_ANNC"].ToString());
-                    NouvelAnnonce.prix_actuelle = Convert.ToDouble(ReaderAnnonceFiltre["PRIXACT_ANNC"].ToString());
-                    NouvelAnnonce.quantite = int.Parse(ReaderAnnonceFiltre["QTE_ANNC"].ToString());
-                    NouvelAnnonce.date = (ReaderAnnonceFiltre["DATE_ANNC"].ToString());
-                    NouvelAnnonce.type = (ReaderAnnonceFiltre["TYPE_ANNC"].ToString());
-                    NouvelAnnonce.statut = (ReaderAnnonceFiltre["STATUT_ANNC"].ToString());
-                    NouvelAnnonce.unite = (ReaderAnnonceFiltre["UNITE_ANNC"].ToString());
+                    NouvelAnnonce.id_annonce = int.Parse(ReaderAnnonce["ID_ANNC"].ToString());
+                    NouvelAnnonce.id_membre = int.Parse(ReaderAnnonce["ID_MEMBRE"].ToString());
+                    NouvelAnnonce.titre = (ReaderAnnonce["TITRE_ANNC"].ToString());
+                    NouvelAnnonce.description = (ReaderAnnonce["DESC_ANNC"].ToString());
+                    NouvelAnnonce.image = (ReaderAnnonce["IMAGE_ANNC"].ToString());
+                    NouvelAnnonce.prix_depart = Convert.ToDouble(ReaderAnnonce["PRIXDEP_ANNC"].ToString());
+                    NouvelAnnonce.prix_actuelle = Convert.ToDouble(ReaderAnnonce["PRIXACT_ANNC"].ToString());
+                    NouvelAnnonce.quantite = int.Parse(ReaderAnnonce["QTE_ANNC"].ToString());
+                    NouvelAnnonce.date = (ReaderAnnonce["DATE_ANNC"].ToString());
+                    NouvelAnnonce.type = (ReaderAnnonce["TYPE_ANNC"].ToString());
+                    NouvelAnnonce.statut = (ReaderAnnonce["STATUT_ANNC"].ToString());
+                    NouvelAnnonce.unite = (ReaderAnnonce["UNITE_ANNC"].ToString());
 
                     CollAnnonce.Add(NouvelAnnonce);
                 }
-
-            doRecherche();
-
-
+                ReaderAnnonce.Close();
+                GestConn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur : " + ex.Message);
+            }
             progressBar_chargement.Value = 100;
-            ReaderAnnonceFiltre.Close();
-            GestConn.Close();
             progressBar_chargement.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridViewAnnonce.Rows.Clear();
+            addListAnnonce(doSql());
+            doRecherche();
         }
 
     }
