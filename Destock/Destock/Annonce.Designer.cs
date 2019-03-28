@@ -101,6 +101,7 @@
             this.dataGridViewAnnonce.Name = "dataGridViewAnnonce";
             this.dataGridViewAnnonce.Size = new System.Drawing.Size(788, 545);
             this.dataGridViewAnnonce.TabIndex = 0;
+            this.dataGridViewAnnonce.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.changeActiviteDetail);
             // 
             // ID
             // 

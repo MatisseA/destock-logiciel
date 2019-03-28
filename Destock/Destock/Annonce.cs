@@ -187,5 +187,14 @@ namespace Destock
             addListAnnonce(doSql());
             doRecherche();
         }
+
+        private void changeActiviteDetail(object sender, DataGridViewCellEventArgs e)
+        {
+            //MessageBox.Show(dataGridViewAnnonce.CurrentRow.Cells[0].Value.ToString());
+
+            DetailsAnnonce Mafenetre = new DetailsAnnonce(dataGridViewAnnonce.CurrentRow.Cells[0].Value.ToString());
+            Mafenetre.Owner = this;
+            Mafenetre.Show();
+        }
     }
 }

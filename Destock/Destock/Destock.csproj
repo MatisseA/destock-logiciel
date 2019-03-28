@@ -60,6 +60,12 @@
     <Compile Include="Connexion.Designer.cs">
       <DependentUpon>Connexion.cs</DependentUpon>
     </Compile>
+    <Compile Include="DetailsAnnonce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailsAnnonce.Designer.cs">
+      <DependentUpon>DetailsAnnonce.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailsAnnonce.resx">
+      <DependentUpon>DetailsAnnonce.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
