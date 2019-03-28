@@ -72,9 +72,17 @@ namespace Destock
             {
                 requete = requete + " AND TITRE_ANNC LIKE '%" + textBox_titre.Text + "%'";
             }
+            if (textBox_date.Text != "")
+            {
+                requete = requete + " AND DATE_ANNC LIKE '%"+ textBox_date.Text +"%'";
+            }
             if (checkBox_prix.Checked == true)
             {
                 requete = requete + " AND (PRIXACT_ANNC BETWEEN '" + numericUpDown_prix_min.Value + "' AND '" + numericUpDown_prix_max.Value + "')";
+            }
+            if(checkBox_quantite.Checked == true)
+            {
+                requete = requete + " AND (QTE_ANNC BETWEEN '" + numericUpDown_quantite_min.Value + "' AND '" + numericUpDown_quantite_max.Value + "')";
             }
 
             requete = requete + " ORDER BY ID_ANNC";
@@ -179,6 +187,5 @@ namespace Destock
             addListAnnonce(doSql());
             doRecherche();
         }
-
     }
 }

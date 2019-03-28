@@ -29,9 +29,17 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Annonce));
             this.dataGridViewAnnonce = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VENDEUR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TITRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRIX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QUANTITE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Actions = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label_nb_total = new System.Windows.Forms.Label();
             this.label_en_ligne = new System.Windows.Forms.Label();
             this.progressBar_chargement = new System.Windows.Forms.ProgressBar();
@@ -46,15 +54,18 @@
             this.checkBox_prix = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VENDEUR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TITRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRIX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QUANTITE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label_date = new System.Windows.Forms.Label();
+            this.checkBox_quantite = new System.Windows.Forms.CheckBox();
+            this.label_quantite_max = new System.Windows.Forms.Label();
+            this.numericUpDown_quantite_max = new System.Windows.Forms.NumericUpDown();
+            this.label_quantite_min = new System.Windows.Forms.Label();
+            this.numericUpDown_quantite_min = new System.Windows.Forms.NumericUpDown();
+            this.textBox_date = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnnonce)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_prix_min)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_prix_max)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_quantite_max)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_quantite_min)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewAnnonce
@@ -76,19 +87,67 @@
             this.TITRE,
             this.PRIX,
             this.QUANTITE,
-            this.DATE});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(76)))), ((int)(((byte)(101)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewAnnonce.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DATE,
+            this.Actions});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(76)))), ((int)(((byte)(101)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewAnnonce.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewAnnonce.Location = new System.Drawing.Point(275, 12);
             this.dataGridViewAnnonce.Name = "dataGridViewAnnonce";
-            this.dataGridViewAnnonce.Size = new System.Drawing.Size(747, 545);
+            this.dataGridViewAnnonce.Size = new System.Drawing.Size(788, 545);
             this.dataGridViewAnnonce.TabIndex = 0;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Width = 43;
+            // 
+            // VENDEUR
+            // 
+            this.VENDEUR.HeaderText = "VENDEUR";
+            this.VENDEUR.Name = "VENDEUR";
+            this.VENDEUR.Width = 85;
+            // 
+            // TITRE
+            // 
+            this.TITRE.HeaderText = "TITRE";
+            this.TITRE.Name = "TITRE";
+            this.TITRE.Width = 64;
+            // 
+            // PRIX
+            // 
+            this.PRIX.HeaderText = "PRIX";
+            this.PRIX.Name = "PRIX";
+            this.PRIX.Width = 57;
+            // 
+            // QUANTITE
+            // 
+            this.QUANTITE.HeaderText = "QUANTITE";
+            this.QUANTITE.Name = "QUANTITE";
+            this.QUANTITE.Width = 87;
+            // 
+            // DATE
+            // 
+            this.DATE.HeaderText = "DATE";
+            this.DATE.Name = "DATE";
+            this.DATE.Width = 61;
+            // 
+            // Actions
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "Détails";
+            this.Actions.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Actions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Actions.HeaderText = "ACTIONS";
+            this.Actions.Name = "Actions";
+            this.Actions.Text = "Détails";
+            this.Actions.Width = 60;
             // 
             // label_nb_total
             // 
@@ -144,9 +203,9 @@
             this.label_id.ForeColor = System.Drawing.Color.White;
             this.label_id.Location = new System.Drawing.Point(12, 70);
             this.label_id.Name = "label_id";
-            this.label_id.Size = new System.Drawing.Size(108, 20);
+            this.label_id.Size = new System.Drawing.Size(117, 20);
             this.label_id.TabIndex = 9;
-            this.label_id.Text = "ID ANNONCE";
+            this.label_id.Text = "Id de l\'annonce";
             // 
             // textBox_id
             // 
@@ -158,7 +217,7 @@
             // 
             // numericUpDown_prix_min
             // 
-            this.numericUpDown_prix_min.Location = new System.Drawing.Point(126, 152);
+            this.numericUpDown_prix_min.Location = new System.Drawing.Point(126, 209);
             this.numericUpDown_prix_min.Maximum = new decimal(new int[] {
             9998,
             0,
@@ -173,7 +232,7 @@
             // 
             this.label_prix_min.AutoSize = true;
             this.label_prix_min.ForeColor = System.Drawing.Color.White;
-            this.label_prix_min.Location = new System.Drawing.Point(124, 136);
+            this.label_prix_min.Location = new System.Drawing.Point(124, 193);
             this.label_prix_min.Name = "label_prix_min";
             this.label_prix_min.Size = new System.Drawing.Size(43, 13);
             this.label_prix_min.TabIndex = 11;
@@ -183,7 +242,7 @@
             // 
             this.label_prix_max.AutoSize = true;
             this.label_prix_max.ForeColor = System.Drawing.Color.White;
-            this.label_prix_max.Location = new System.Drawing.Point(196, 136);
+            this.label_prix_max.Location = new System.Drawing.Point(196, 193);
             this.label_prix_max.Name = "label_prix_max";
             this.label_prix_max.Size = new System.Drawing.Size(46, 13);
             this.label_prix_max.TabIndex = 13;
@@ -191,7 +250,7 @@
             // 
             // numericUpDown_prix_max
             // 
-            this.numericUpDown_prix_max.Location = new System.Drawing.Point(198, 152);
+            this.numericUpDown_prix_max.Location = new System.Drawing.Point(198, 209);
             this.numericUpDown_prix_max.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -216,7 +275,7 @@
             // 
             this.checkBox_prix.AutoSize = true;
             this.checkBox_prix.ForeColor = System.Drawing.Color.White;
-            this.checkBox_prix.Location = new System.Drawing.Point(12, 152);
+            this.checkBox_prix.Location = new System.Drawing.Point(12, 209);
             this.checkBox_prix.Name = "checkBox_prix";
             this.checkBox_prix.Size = new System.Drawing.Size(100, 17);
             this.checkBox_prix.TabIndex = 14;
@@ -228,7 +287,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(185, 156);
+            this.label1.Location = new System.Drawing.Point(185, 213);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(13, 13);
             this.label1.TabIndex = 15;
@@ -238,54 +297,112 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(259, 155);
+            this.label2.Location = new System.Drawing.Point(259, 212);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(13, 13);
             this.label2.TabIndex = 16;
             this.label2.Text = "€";
             // 
-            // ID
+            // label_date
             // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Width = 43;
+            this.label_date.AutoSize = true;
+            this.label_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_date.ForeColor = System.Drawing.Color.White;
+            this.label_date.Location = new System.Drawing.Point(12, 129);
+            this.label_date.Name = "label_date";
+            this.label_date.Size = new System.Drawing.Size(44, 20);
+            this.label_date.TabIndex = 17;
+            this.label_date.Text = "Date";
             // 
-            // VENDEUR
+            // checkBox_quantite
             // 
-            this.VENDEUR.HeaderText = "VENDEUR";
-            this.VENDEUR.Name = "VENDEUR";
-            this.VENDEUR.Width = 85;
+            this.checkBox_quantite.AutoSize = true;
+            this.checkBox_quantite.ForeColor = System.Drawing.Color.White;
+            this.checkBox_quantite.Location = new System.Drawing.Point(12, 260);
+            this.checkBox_quantite.Name = "checkBox_quantite";
+            this.checkBox_quantite.Size = new System.Drawing.Size(122, 17);
+            this.checkBox_quantite.TabIndex = 25;
+            this.checkBox_quantite.Text = "Filtre sur les quantité";
+            this.checkBox_quantite.UseVisualStyleBackColor = true;
+            this.checkBox_quantite.CheckedChanged += new System.EventHandler(this.button1_Click);
             // 
-            // TITRE
+            // label_quantite_max
             // 
-            this.TITRE.HeaderText = "TITRE";
-            this.TITRE.Name = "TITRE";
-            this.TITRE.Width = 64;
+            this.label_quantite_max.AutoSize = true;
+            this.label_quantite_max.ForeColor = System.Drawing.Color.White;
+            this.label_quantite_max.Location = new System.Drawing.Point(202, 243);
+            this.label_quantite_max.Name = "label_quantite_max";
+            this.label_quantite_max.Size = new System.Drawing.Size(46, 13);
+            this.label_quantite_max.TabIndex = 24;
+            this.label_quantite_max.Text = "Qte max";
             // 
-            // PRIX
+            // numericUpDown_quantite_max
             // 
-            this.PRIX.HeaderText = "PRIX";
-            this.PRIX.Name = "PRIX";
-            this.PRIX.Width = 57;
+            this.numericUpDown_quantite_max.Location = new System.Drawing.Point(205, 259);
+            this.numericUpDown_quantite_max.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numericUpDown_quantite_max.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_quantite_max.Name = "numericUpDown_quantite_max";
+            this.numericUpDown_quantite_max.Size = new System.Drawing.Size(59, 20);
+            this.numericUpDown_quantite_max.TabIndex = 23;
+            this.numericUpDown_quantite_max.Value = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numericUpDown_quantite_max.ValueChanged += new System.EventHandler(this.button1_Click);
             // 
-            // QUANTITE
+            // label_quantite_min
             // 
-            this.QUANTITE.HeaderText = "QUANTITE";
-            this.QUANTITE.Name = "QUANTITE";
-            this.QUANTITE.Width = 87;
+            this.label_quantite_min.AutoSize = true;
+            this.label_quantite_min.ForeColor = System.Drawing.Color.White;
+            this.label_quantite_min.Location = new System.Drawing.Point(137, 243);
+            this.label_quantite_min.Name = "label_quantite_min";
+            this.label_quantite_min.Size = new System.Drawing.Size(43, 13);
+            this.label_quantite_min.TabIndex = 22;
+            this.label_quantite_min.Text = "Qte min";
             // 
-            // DATE
+            // numericUpDown_quantite_min
             // 
-            this.DATE.HeaderText = "DATE";
-            this.DATE.Name = "DATE";
-            this.DATE.Width = 61;
+            this.numericUpDown_quantite_min.Location = new System.Drawing.Point(140, 259);
+            this.numericUpDown_quantite_min.Maximum = new decimal(new int[] {
+            9998,
+            0,
+            0,
+            0});
+            this.numericUpDown_quantite_min.Name = "numericUpDown_quantite_min";
+            this.numericUpDown_quantite_min.Size = new System.Drawing.Size(59, 20);
+            this.numericUpDown_quantite_min.TabIndex = 21;
+            this.numericUpDown_quantite_min.ValueChanged += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox_date
+            // 
+            this.textBox_date.Location = new System.Drawing.Point(13, 152);
+            this.textBox_date.Name = "textBox_date";
+            this.textBox_date.Size = new System.Drawing.Size(256, 20);
+            this.textBox_date.TabIndex = 26;
+            this.textBox_date.TextChanged += new System.EventHandler(this.button1_Click);
             // 
             // Annonce
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
-            this.ClientSize = new System.Drawing.Size(1034, 585);
+            this.ClientSize = new System.Drawing.Size(1075, 585);
+            this.Controls.Add(this.textBox_date);
+            this.Controls.Add(this.checkBox_quantite);
+            this.Controls.Add(this.label_quantite_max);
+            this.Controls.Add(this.numericUpDown_quantite_max);
+            this.Controls.Add(this.label_quantite_min);
+            this.Controls.Add(this.numericUpDown_quantite_min);
+            this.Controls.Add(this.label_date);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBox_prix);
@@ -310,6 +427,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnnonce)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_prix_min)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_prix_max)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_quantite_max)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_quantite_min)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,5 +457,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PRIX;
         private System.Windows.Forms.DataGridViewTextBoxColumn QUANTITE;
         private System.Windows.Forms.DataGridViewTextBoxColumn DATE;
+        private System.Windows.Forms.DataGridViewButtonColumn Actions;
+        private System.Windows.Forms.Label label_date;
+        private System.Windows.Forms.CheckBox checkBox_quantite;
+        private System.Windows.Forms.Label label_quantite_max;
+        private System.Windows.Forms.NumericUpDown numericUpDown_quantite_max;
+        private System.Windows.Forms.Label label_quantite_min;
+        private System.Windows.Forms.NumericUpDown numericUpDown_quantite_min;
+        private System.Windows.Forms.TextBox textBox_date;
     }
 }
