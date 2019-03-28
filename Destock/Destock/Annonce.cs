@@ -36,19 +36,7 @@ namespace Destock
                 CollAnnonce = new List<uneAnnonce>();
                 ChargementCollectionAnnonce();
 
-                int i = 0;
-                int u = 0;
-                foreach (uneAnnonce laAnnonce in CollAnnonce)
-                {
-                    if (laAnnonce.statut.ToString() != "deleted")
-                    {
-                        dataGridViewAnnonce.Rows.Add(laAnnonce.id_annonce.ToString(), laAnnonce.id_membre.ToString(), laAnnonce.titre.ToString(), laAnnonce.prix_actuelle.ToString() + "€", laAnnonce.quantite.ToString(), laAnnonce.date.ToString());
-                        u++;
-                    }
-                        i++;
-                }
-                label_nb_total.Text = "Nombre total d'annonce:" + i.ToString();
-                label_en_ligne.Text = "Nombre d'annonce en ligne:" + u.ToString();
+                doRecherche();
 
             }
             catch (Exception ex) { MessageBox.Show("Erreur Load : " + ex.Message); }
@@ -114,43 +102,93 @@ namespace Destock
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur2 : " + ex.Message);
+                MessageBox.Show("Erreur : " + ex.Message);
             }
             progressBar_chargement.Value = 100;
             progressBar_chargement.Visible = false;
         }
 
+        public String doSql()
+        {
+            String requete;
+            //requete de base pour tout afficher
+            requete = "SELECT * FROM annonce WHERE ID_ANNC > 0";
+
+            if(textBox_id.Text != "")
+            {
+                requete = requete + " AND ID_ANNC LIKE '%"+ textBox_id.Text + "%'";
+            }
+            if (textBox_titre.Text != "")
+            {
+                requete = requete + " AND TITRE_ANNC LIKE '%" + textBox_titre.Text + "%'";
+            }
+            if (checkBox_prix.Checked == true)
+            {
+                requete = requete + " AND (PRIXACT_ANNC BETWEEN '" + numericUpDown_prix_min.Value + "' AND '" + numericUpDown_prix_max.Value + "')";
+            }
+
+            requete = requete + " ORDER BY ID_ANNC";
+            return requete;
+        }
+
+        public void doRecherche()
+        {
+            int i = 0;
+            int u = 0;
+            foreach (uneAnnonce laAnnonce in CollAnnonce)
+            {
+                if (laAnnonce.statut.ToString() != "deleted")
+                {
+                    String nomMembre = changeNameUserbyId(laAnnonce.id_membre.ToString());
+                    dataGridViewAnnonce.Rows.Add(laAnnonce.id_annonce.ToString(), nomMembre, laAnnonce.titre.ToString(), laAnnonce.prix_actuelle.ToString() + "€", laAnnonce.quantite.ToString(), laAnnonce.date.ToString());
+                    u++;
+                }
+                i++;
+            }
+            label_nb_total.Text = "Nombre total d'annonce:" + i.ToString();
+            label_en_ligne.Text = "Nombre d'annonce visible:" + u.ToString();
+        }
+
+        public String changeNameUserbyId(String idUser)
+        {
+            String nomEntier = idUser;
+            try
+            {
+                //Ouverture connexion
+                GestConn.Open();
+                //Requete SQL
+                String ReqSql = "SELECT * FROM membre WHERE ID_MEMBRE="+ idUser +"";
+                MySqlCommand MaCommande = new MySqlCommand(ReqSql, GestConn);
+                //Déclaration de Data Reader
+                MySqlDataReader ReaderMembre;
+                //Exécution de la requête
+                ReaderMembre = MaCommande.ExecuteReader();
+                while (ReaderMembre.Read())
+                {
+                    nomEntier = (ReaderMembre["NOM_MEMBRE"].ToString()) + " " + (ReaderMembre["PRENOM_MEMBRE"].ToString());
+                }
+                ReaderMembre.Close();
+                GestConn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur : " + ex.Message);
+            }
+            return nomEntier;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             String ReqSqlFiltre;
-            if (textBox_titre.Text != "")
-            {
-                if (textBox_id.Text != "")
-                {
-                    ReqSqlFiltre = "SELECT * FROM annonce WHERE TITRE_ANNC='" + textBox_titre.Text + "' AND ID_ANNC='" + textBox_id.Text + "' ORDER BY ID_ANNC";
-                }
-                else
-                {
-                    ReqSqlFiltre = "SELECT * FROM annonce WHERE TITRE_ANNC='" + textBox_titre.Text + "' ORDER BY ID_ANNC";
-                }
-            }
-            else
-            {
-                if (textBox_id.Text != "")
-                {
-                    ReqSqlFiltre = "SELECT * FROM annonce WHERE ID_ANNC='" + textBox_id.Text + "' ORDER BY ID_ANNC";
-                }
-                else
-                {
-                    ReqSqlFiltre = "SELECT * FROM annonce ORDER BY ID_ANNC";
-                }
-            }
+            ReqSqlFiltre = doSql();
+
             progressBar_chargement.Visible = true;
             progressBar_chargement.Value = 0;
             CollAnnonce.Clear();
+            dataGridViewAnnonce.Rows.Clear();
 
 
-                GestConn.Open();
+            GestConn.Open();
                 MySqlCommand MaCommandeFiltre = new MySqlCommand(ReqSqlFiltre, GestConn);
                 //Déclaration de Data Reader
                 MySqlDataReader ReaderAnnonceFiltre;
@@ -177,9 +215,13 @@ namespace Destock
 
                     CollAnnonce.Add(NouvelAnnonce);
                 }
+
+            doRecherche();
+
+
             progressBar_chargement.Value = 100;
             ReaderAnnonceFiltre.Close();
-                GestConn.Close();
+            GestConn.Close();
             progressBar_chargement.Visible = false;
         }
 

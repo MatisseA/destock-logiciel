@@ -52,7 +52,6 @@
             this.checkBox_prix = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnnonce)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_prix_min)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_prix_max)).BeginInit();
@@ -151,7 +150,7 @@
             // 
             this.progressBar_chargement.Location = new System.Drawing.Point(275, 563);
             this.progressBar_chargement.Name = "progressBar_chargement";
-            this.progressBar_chargement.Size = new System.Drawing.Size(691, 10);
+            this.progressBar_chargement.Size = new System.Drawing.Size(747, 13);
             this.progressBar_chargement.Step = 1;
             this.progressBar_chargement.TabIndex = 5;
             // 
@@ -161,6 +160,7 @@
             this.textBox_titre.Name = "textBox_titre";
             this.textBox_titre.Size = new System.Drawing.Size(256, 20);
             this.textBox_titre.TabIndex = 6;
+            this.textBox_titre.TextChanged += new System.EventHandler(this.button1_Click);
             // 
             // label_titre
             // 
@@ -190,6 +190,7 @@
             this.textBox_id.Name = "textBox_id";
             this.textBox_id.Size = new System.Drawing.Size(256, 20);
             this.textBox_id.TabIndex = 8;
+            this.textBox_id.TextChanged += new System.EventHandler(this.button1_Click);
             // 
             // numericUpDown_prix_min
             // 
@@ -202,6 +203,7 @@
             this.numericUpDown_prix_min.Name = "numericUpDown_prix_min";
             this.numericUpDown_prix_min.Size = new System.Drawing.Size(59, 20);
             this.numericUpDown_prix_min.TabIndex = 10;
+            this.numericUpDown_prix_min.ValueChanged += new System.EventHandler(this.button1_Click);
             // 
             // label_prix_min
             // 
@@ -244,6 +246,7 @@
             0,
             0,
             0});
+            this.numericUpDown_prix_max.ValueChanged += new System.EventHandler(this.button1_Click);
             // 
             // checkBox_prix
             // 
@@ -255,6 +258,7 @@
             this.checkBox_prix.TabIndex = 14;
             this.checkBox_prix.Text = "Filtre sur les prix";
             this.checkBox_prix.UseVisualStyleBackColor = true;
+            this.checkBox_prix.CheckedChanged += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -276,30 +280,12 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "€";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(76)))), ((int)(((byte)(101)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(76)))), ((int)(((byte)(101)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(13, 243);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(256, 54);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Filtrer";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Annonce
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(1034, 585);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBox_prix);
@@ -352,6 +338,5 @@
         private System.Windows.Forms.CheckBox checkBox_prix;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
     }
 }
