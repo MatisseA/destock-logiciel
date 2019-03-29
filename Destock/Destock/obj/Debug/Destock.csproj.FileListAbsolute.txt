@@ -60,3 +60,4 @@ E:\BTS\PPE\destock-logiciel\Destock\Destock\obj\Debug\Destock.csproj.CopyComplet
 E:\BTS\PPE\destock-logiciel\Destock\Destock\obj\Debug\Destock.exe
 E:\BTS\PPE\destock-logiciel\Destock\Destock\obj\Debug\Destock.pdb
 E:\BTS\PPE\destock-logiciel\Destock\Destock\obj\Debug\Destock.DetailsAnnonce.resources
+C:\Users\Gevyoo\Desktop\projet_Destock\destock-logiciel\Destock\Destock\obj\Debug\Destock.DetailsAnnonce.resources
