@@ -37,9 +37,17 @@
             this.label_no_image = new System.Windows.Forms.Label();
             this.label_txt_description = new System.Windows.Forms.Label();
             this.BtnSupprimer = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_premium = new System.Windows.Forms.Button();
             this.label_auteur = new System.Windows.Forms.Label();
             this.label_txt_auteur = new System.Windows.Forms.Label();
+            this.label_quantite = new System.Windows.Forms.Label();
+            this.label_txt_quantite = new System.Windows.Forms.Label();
+            this.label_txt_prix_depart = new System.Windows.Forms.Label();
+            this.label_prix_depart = new System.Windows.Forms.Label();
+            this.label_txt_prix_actuel = new System.Windows.Forms.Label();
+            this.label_prix_actuel = new System.Windows.Forms.Label();
+            this.label_txt_date = new System.Windows.Forms.Label();
+            this.label_date = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_image)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,30 +139,33 @@
             this.BtnSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSupprimer.ForeColor = System.Drawing.Color.White;
-            this.BtnSupprimer.Location = new System.Drawing.Point(403, 404);
+            this.BtnSupprimer.Location = new System.Drawing.Point(403, 405);
             this.BtnSupprimer.Margin = new System.Windows.Forms.Padding(2);
             this.BtnSupprimer.Name = "BtnSupprimer";
             this.BtnSupprimer.Size = new System.Drawing.Size(122, 34);
             this.BtnSupprimer.TabIndex = 14;
             this.BtnSupprimer.Text = "Supprimer";
             this.BtnSupprimer.UseVisualStyleBackColor = false;
+            this.BtnSupprimer.Click += new System.EventHandler(this.BtnSupprimer_Click);
             // 
-            // button1
+            // button_premium
             // 
-            this.button1.BackColor = System.Drawing.Color.Goldenrod;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(76)))), ((int)(((byte)(101)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(268, 404);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 34);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Premium";
-            this.button1.UseVisualStyleBackColor = false;
+            this.button_premium.BackColor = System.Drawing.Color.Goldenrod;
+            this.button_premium.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_premium.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(76)))), ((int)(((byte)(101)))));
+            this.button_premium.FlatAppearance.BorderSize = 0;
+            this.button_premium.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_premium.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_premium.ForeColor = System.Drawing.Color.White;
+            this.button_premium.Location = new System.Drawing.Point(277, 405);
+            this.button_premium.Margin = new System.Windows.Forms.Padding(2);
+            this.button_premium.Name = "button_premium";
+            this.button_premium.Size = new System.Drawing.Size(122, 34);
+            this.button_premium.TabIndex = 15;
+            this.button_premium.Text = "Premium";
+            this.button_premium.UseVisualStyleBackColor = false;
+            this.button_premium.Visible = false;
+            this.button_premium.Click += new System.EventHandler(this.button_premium_Click);
             // 
             // label_auteur
             // 
@@ -178,15 +189,104 @@
             this.label_txt_auteur.TabIndex = 17;
             this.label_txt_auteur.Text = "Nom Prénom";
             // 
+            // label_quantite
+            // 
+            this.label_quantite.AutoSize = true;
+            this.label_quantite.ForeColor = System.Drawing.Color.White;
+            this.label_quantite.Location = new System.Drawing.Point(4, 62);
+            this.label_quantite.Name = "label_quantite";
+            this.label_quantite.Size = new System.Drawing.Size(50, 13);
+            this.label_quantite.TabIndex = 18;
+            this.label_quantite.Text = "Quantité:";
+            // 
+            // label_txt_quantite
+            // 
+            this.label_txt_quantite.AutoSize = true;
+            this.label_txt_quantite.ForeColor = System.Drawing.Color.White;
+            this.label_txt_quantite.Location = new System.Drawing.Point(60, 62);
+            this.label_txt_quantite.Name = "label_txt_quantite";
+            this.label_txt_quantite.Size = new System.Drawing.Size(13, 13);
+            this.label_txt_quantite.TabIndex = 19;
+            this.label_txt_quantite.Text = "0";
+            // 
+            // label_txt_prix_depart
+            // 
+            this.label_txt_prix_depart.AutoSize = true;
+            this.label_txt_prix_depart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_txt_prix_depart.ForeColor = System.Drawing.Color.White;
+            this.label_txt_prix_depart.Location = new System.Drawing.Point(85, 89);
+            this.label_txt_prix_depart.Name = "label_txt_prix_depart";
+            this.label_txt_prix_depart.Size = new System.Drawing.Size(13, 13);
+            this.label_txt_prix_depart.TabIndex = 21;
+            this.label_txt_prix_depart.Text = "0";
+            // 
+            // label_prix_depart
+            // 
+            this.label_prix_depart.AutoSize = true;
+            this.label_prix_depart.ForeColor = System.Drawing.Color.White;
+            this.label_prix_depart.Location = new System.Drawing.Point(4, 89);
+            this.label_prix_depart.Name = "label_prix_depart";
+            this.label_prix_depart.Size = new System.Drawing.Size(75, 13);
+            this.label_prix_depart.TabIndex = 20;
+            this.label_prix_depart.Text = "Prix de départ:";
+            // 
+            // label_txt_prix_actuel
+            // 
+            this.label_txt_prix_actuel.AutoSize = true;
+            this.label_txt_prix_actuel.ForeColor = System.Drawing.Color.White;
+            this.label_txt_prix_actuel.Location = new System.Drawing.Point(66, 117);
+            this.label_txt_prix_actuel.Name = "label_txt_prix_actuel";
+            this.label_txt_prix_actuel.Size = new System.Drawing.Size(13, 13);
+            this.label_txt_prix_actuel.TabIndex = 23;
+            this.label_txt_prix_actuel.Text = "0";
+            // 
+            // label_prix_actuel
+            // 
+            this.label_prix_actuel.AutoSize = true;
+            this.label_prix_actuel.ForeColor = System.Drawing.Color.White;
+            this.label_prix_actuel.Location = new System.Drawing.Point(4, 117);
+            this.label_prix_actuel.Name = "label_prix_actuel";
+            this.label_prix_actuel.Size = new System.Drawing.Size(59, 13);
+            this.label_prix_actuel.TabIndex = 22;
+            this.label_prix_actuel.Text = "Prix actuel:";
+            // 
+            // label_txt_date
+            // 
+            this.label_txt_date.AutoSize = true;
+            this.label_txt_date.ForeColor = System.Drawing.Color.White;
+            this.label_txt_date.Location = new System.Drawing.Point(46, 144);
+            this.label_txt_date.Name = "label_txt_date";
+            this.label_txt_date.Size = new System.Drawing.Size(13, 13);
+            this.label_txt_date.TabIndex = 25;
+            this.label_txt_date.Text = "0";
+            // 
+            // label_date
+            // 
+            this.label_date.AutoSize = true;
+            this.label_date.ForeColor = System.Drawing.Color.White;
+            this.label_date.Location = new System.Drawing.Point(7, 144);
+            this.label_date.Name = "label_date";
+            this.label_date.Size = new System.Drawing.Size(33, 13);
+            this.label_date.TabIndex = 24;
+            this.label_date.Text = "Date:";
+            // 
             // DetailsAnnonce
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label_txt_date);
+            this.Controls.Add(this.label_date);
+            this.Controls.Add(this.label_txt_prix_actuel);
+            this.Controls.Add(this.label_prix_actuel);
+            this.Controls.Add(this.label_txt_prix_depart);
+            this.Controls.Add(this.label_prix_depart);
+            this.Controls.Add(this.label_txt_quantite);
+            this.Controls.Add(this.label_quantite);
             this.Controls.Add(this.label_txt_auteur);
             this.Controls.Add(this.label_auteur);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_premium);
             this.Controls.Add(this.BtnSupprimer);
             this.Controls.Add(this.label_txt_description);
             this.Controls.Add(this.label_no_image);
@@ -216,8 +316,16 @@
         private System.Windows.Forms.Label label_no_image;
         private System.Windows.Forms.Label label_txt_description;
         private System.Windows.Forms.Button BtnSupprimer;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_premium;
         private System.Windows.Forms.Label label_auteur;
         private System.Windows.Forms.Label label_txt_auteur;
+        private System.Windows.Forms.Label label_quantite;
+        private System.Windows.Forms.Label label_txt_quantite;
+        private System.Windows.Forms.Label label_txt_prix_depart;
+        private System.Windows.Forms.Label label_prix_depart;
+        private System.Windows.Forms.Label label_txt_prix_actuel;
+        private System.Windows.Forms.Label label_prix_actuel;
+        private System.Windows.Forms.Label label_txt_date;
+        private System.Windows.Forms.Label label_date;
     }
 }

@@ -123,6 +123,14 @@ namespace Destock
             this.Text = this.Text + " - " + this.titre;
             label_txt_id_annonce.Text = this.idAnnonce;
             label_txt_titre.Text = this.titre;
+            label_txt_prix_depart.Text = this.prix_depart.ToString() + "€";
+            label_txt_prix_actuel.Text = this.prix_actuelle.ToString() + "€";
+            label_txt_date.Text = this.date;
+            
+            if(this.type != "premium")
+            {
+                button_premium.Visible = true;
+            }
             if(this.description != "")
             {
                 label_txt_description.Text = this.description;
@@ -146,6 +154,57 @@ namespace Destock
         {
             //Permet d'ouvrir le navigateur et d'aller directement sur le lien concernant l'annonce visionnée
             System.Diagnostics.Process.Start("http://btsinfo-rousseau53.fr:11017/2017-destock/index.php?c=voirannonce&a="+ this.idAnnonce);
+        }
+
+        private void button_premium_Click(object sender, EventArgs e)
+        {
+            //Met l'annonce en statut premium (couleur jaune à l'affichage)
+            try
+            {
+                //Ouverture connexion
+                GestConn.Open();
+                //Requete SQL
+                String ReqSql = "UPDATE annonce SET TYPE_ANNC = 'premium' WHERE ID_ANNC=" + this.idAnnonce;
+                MySqlCommand MaCommande = new MySqlCommand(ReqSql, GestConn);
+                //Déclaration de Data Reader
+                MySqlDataReader ReaderMembre;
+                //Exécution de la requête
+                ReaderMembre = MaCommande.ExecuteReader();
+                ReaderMembre.Close();
+                GestConn.Close();
+                MessageBox.Show("L'annonce est maintenant en premium.");
+                button_premium.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur : " + ex.Message);
+            }
+
+        }
+
+        private void BtnSupprimer_Click(object sender, EventArgs e)
+        {
+            //Met l'annonce en statut premium (couleur jaune à l'affichage)
+            try
+            {
+                //Ouverture connexion
+                GestConn.Open();
+                //Requete SQL
+                String ReqSql = "UPDATE annonce SET STATUT_ANNC = 'deleted' WHERE ID_ANNC=" + this.idAnnonce;
+                MySqlCommand MaCommande = new MySqlCommand(ReqSql, GestConn);
+                //Déclaration de Data Reader
+                MySqlDataReader ReaderMembre;
+                //Exécution de la requête
+                ReaderMembre = MaCommande.ExecuteReader();
+                ReaderMembre.Close();
+                GestConn.Close();
+                MessageBox.Show("L'annonce est maintenant supprimée.");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur : " + ex.Message);
+            }
         }
     }
 }
