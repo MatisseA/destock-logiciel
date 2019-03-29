@@ -30,9 +30,12 @@ namespace Destock
         public MySqlConnection GestConn;
         public DataView dv;
 
-        public DetailsAnnonce(String idAnnonce)
+        FormPrincipale lien;
+
+        public DetailsAnnonce(String idAnnonce, FormPrincipale lien2)
         {
             InitializeComponent();
+            this.lien = lien2;
             this.idAnnonce = idAnnonce;
         }
 

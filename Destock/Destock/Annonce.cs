@@ -192,8 +192,9 @@ namespace Destock
         {
             //MessageBox.Show(dataGridViewAnnonce.CurrentRow.Cells[0].Value.ToString());
 
-            DetailsAnnonce Mafenetre = new DetailsAnnonce(dataGridViewAnnonce.CurrentRow.Cells[0].Value.ToString());
+            DetailsAnnonce Mafenetre = new DetailsAnnonce(dataGridViewAnnonce.CurrentRow.Cells[0].Value.ToString(), this.lien);
             Mafenetre.Owner = this;
+            Mafenetre.MdiParent = this.lien;
             Mafenetre.Show();
         }
     }

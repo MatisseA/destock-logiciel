@@ -68,5 +68,13 @@ namespace Destock
             Mafenetre.MdiParent = this;
             Mafenetre.Show();
         }
+
+        private void commentaireToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Commentaire Mafenetre = new Commentaire(this);
+            Mafenetre.Owner = this;
+            Mafenetre.MdiParent = this;
+            Mafenetre.Show();
+        }
     }
 }

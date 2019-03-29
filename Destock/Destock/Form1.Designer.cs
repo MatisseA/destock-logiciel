@@ -40,6 +40,7 @@
             this.TSMMembre = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.TSStext = new System.Windows.Forms.ToolStripStatusLabel();
+            this.commentaireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,8 +53,8 @@
             this.TSMgerer});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(999, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(749, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -65,13 +66,13 @@
             this.TSMCréa,
             this.quitterToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
             // TSMConn
             // 
             this.TSMConn.Name = "TSMConn";
-            this.TSMConn.Size = new System.Drawing.Size(241, 26);
+            this.TSMConn.Size = new System.Drawing.Size(200, 22);
             this.TSMConn.Text = "Se connecter";
             this.TSMConn.Click += new System.EventHandler(this.seConnecterToolStripMenuItem_Click);
             // 
@@ -79,21 +80,21 @@
             // 
             this.TSMDeco.Enabled = false;
             this.TSMDeco.Name = "TSMDeco";
-            this.TSMDeco.Size = new System.Drawing.Size(241, 26);
+            this.TSMDeco.Size = new System.Drawing.Size(200, 22);
             this.TSMDeco.Text = "Se déconnecter";
             this.TSMDeco.Click += new System.EventHandler(this.TSMDeco_Click);
             // 
             // TSMCréa
             // 
             this.TSMCréa.Name = "TSMCréa";
-            this.TSMCréa.Size = new System.Drawing.Size(241, 26);
+            this.TSMCréa.Size = new System.Drawing.Size(200, 22);
             this.TSMCréa.Text = "Création compte admin";
             this.TSMCréa.Click += new System.EventHandler(this.créationCompteAdminToolStripMenuItem_Click);
             // 
             // quitterToolStripMenuItem
             // 
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
@@ -101,22 +102,23 @@
             // 
             this.TSMgerer.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSMAnnonce,
-            this.TSMMembre});
+            this.TSMMembre,
+            this.commentaireToolStripMenuItem});
             this.TSMgerer.Name = "TSMgerer";
-            this.TSMgerer.Size = new System.Drawing.Size(57, 24);
+            this.TSMgerer.Size = new System.Drawing.Size(47, 20);
             this.TSMgerer.Text = "Gérer";
             // 
             // TSMAnnonce
             // 
             this.TSMAnnonce.Name = "TSMAnnonce";
-            this.TSMAnnonce.Size = new System.Drawing.Size(181, 26);
+            this.TSMAnnonce.Size = new System.Drawing.Size(180, 22);
             this.TSMAnnonce.Text = "Annonce";
             this.TSMAnnonce.Click += new System.EventHandler(this.TSMAnnonce_Click);
             // 
             // TSMMembre
             // 
             this.TSMMembre.Name = "TSMMembre";
-            this.TSMMembre.Size = new System.Drawing.Size(181, 26);
+            this.TSMMembre.Size = new System.Drawing.Size(180, 22);
             this.TSMMembre.Text = "Membre";
             this.TSMMembre.Click += new System.EventHandler(this.TSMMembre_Click);
             // 
@@ -125,30 +127,37 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSStext});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 630);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 510);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(999, 25);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(749, 22);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // TSStext
             // 
             this.TSStext.Name = "TSStext";
-            this.TSStext.Size = new System.Drawing.Size(173, 20);
+            this.TSStext.Size = new System.Drawing.Size(139, 17);
             this.TSStext.Text = "Vous n\'êtes pas connecté";
+            // 
+            // commentaireToolStripMenuItem
+            // 
+            this.commentaireToolStripMenuItem.Name = "commentaireToolStripMenuItem";
+            this.commentaireToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.commentaireToolStripMenuItem.Text = "Commentaire";
+            this.commentaireToolStripMenuItem.Click += new System.EventHandler(this.commentaireToolStripMenuItem_Click);
             // 
             // FormPrincipale
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 655);
+            this.ClientSize = new System.Drawing.Size(749, 532);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormPrincipale";
             this.Text = "ADMINISTRATION DESKTOP";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -175,6 +184,7 @@
         public System.Windows.Forms.ToolStripStatusLabel TSStext;
         public System.Windows.Forms.ToolStripMenuItem TSMAnnonce;
         public System.Windows.Forms.ToolStripMenuItem TSMMembre;
+        private System.Windows.Forms.ToolStripMenuItem commentaireToolStripMenuItem;
     }
 }
 
