@@ -21,6 +21,7 @@ namespace Destock
         }
 
         public List<unCommentaire> CollCommentaire;
+        public List<unBadWord> CollBasWord;
         public String ChaineConnexion;
         public MySqlConnection GestConn;
         public DataView dv;
@@ -52,9 +53,18 @@ namespace Destock
             public int note_comm;
         }
 
+        //Construction de la structure Commentaire
+        public struct unBadWord
+        {
+            public String word;
+        }
+
         private String doSql()
         {
             String requete = "SELECT * FROM commentaire ORDER BY ID_COMM";
+            if (textBox_recherche.Text != "" && textBox_recherche.Text.Length >= 3){
+                requete = "SELECT * FROM commentaire WHERE TXT_COMM LIKE '%"+ textBox_recherche.Text +"%'";
+            }
             return requete;
         }
 
@@ -142,6 +152,18 @@ namespace Destock
             label_note.Text = dataGridViewCommenaire.CurrentRow.Cells[3].Value.ToString();
             label_auteur.Text = dataGridViewCommenaire.CurrentRow.Cells[1].Value.ToString();
             label_date.Text = dataGridViewCommenaire.CurrentRow.Cells[5].Value.ToString();
+        }
+
+        private void Recherhce(object sender, EventArgs e)
+        {
+            dataGridViewCommenaire.Rows.Clear();
+            addListAnnonce(doSql());
+            doRecherche();
+        }
+
+        private void BtnAnalyse_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
