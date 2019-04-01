@@ -28,42 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fenetre1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tableLayoutPanel_dernier_commentaire = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_auteur = new System.Windows.Forms.Label();
             this.label_date = new System.Windows.Forms.Label();
-            this.label_note = new System.Windows.Forms.Label();
             this.label_commentaire = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_note = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_dernier_commentaire = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewCommenaire = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Auteur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vendeur = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menuStrip1.SuspendLayout();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.leCommentaire = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Action = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel_dernier_commentaire.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCommenaire)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fenetre1ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fenetre1ToolStripMenuItem
-            // 
-            this.fenetre1ToolStripMenuItem.Name = "fenetre1ToolStripMenuItem";
-            this.fenetre1ToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.fenetre1ToolStripMenuItem.Text = "Stats";
             // 
             // tableLayoutPanel_dernier_commentaire
             // 
@@ -72,7 +63,7 @@
             this.tableLayoutPanel_dernier_commentaire.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel_dernier_commentaire.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel_dernier_commentaire.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel_dernier_commentaire.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel_dernier_commentaire.Controls.Add(this.label_auteur, 0, 0);
             this.tableLayoutPanel_dernier_commentaire.Controls.Add(this.label_date, 1, 0);
             this.tableLayoutPanel_dernier_commentaire.Controls.Add(this.label_commentaire, 1, 1);
             this.tableLayoutPanel_dernier_commentaire.Controls.Add(this.tableLayoutPanel1, 0, 1);
@@ -85,18 +76,18 @@
             this.tableLayoutPanel_dernier_commentaire.Size = new System.Drawing.Size(776, 100);
             this.tableLayoutPanel_dernier_commentaire.TabIndex = 1;
             // 
-            // label1
+            // label_auteur
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.label_auteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Auteur";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_auteur.ForeColor = System.Drawing.Color.Black;
+            this.label_auteur.Location = new System.Drawing.Point(3, 0);
+            this.label_auteur.Name = "label_auteur";
+            this.label_auteur.Size = new System.Drawing.Size(149, 33);
+            this.label_auteur.TabIndex = 0;
+            this.label_auteur.Text = "Auteur";
+            this.label_auteur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label_date
             // 
@@ -110,19 +101,6 @@
             this.label_date.TabIndex = 1;
             this.label_date.Text = "Date";
             this.label_date.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_note
-            // 
-            this.label_note.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_note.ForeColor = System.Drawing.Color.Black;
-            this.label_note.Location = new System.Drawing.Point(3, 0);
-            this.label_note.Name = "label_note";
-            this.label_note.Size = new System.Drawing.Size(64, 61);
-            this.label_note.TabIndex = 2;
-            this.label_note.Text = "5";
-            this.label_note.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label_commentaire
             // 
@@ -150,6 +128,19 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(149, 61);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
+            // label_note
+            // 
+            this.label_note.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_note.ForeColor = System.Drawing.Color.Black;
+            this.label_note.Location = new System.Drawing.Point(3, 0);
+            this.label_note.Name = "label_note";
+            this.label_note.Size = new System.Drawing.Size(64, 61);
+            this.label_note.TabIndex = 2;
+            this.label_note.Text = "5";
+            this.label_note.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -168,77 +159,135 @@
             this.label_dernier_commentaire.ForeColor = System.Drawing.Color.White;
             this.label_dernier_commentaire.Location = new System.Drawing.Point(12, 317);
             this.label_dernier_commentaire.Name = "label_dernier_commentaire";
-            this.label_dernier_commentaire.Size = new System.Drawing.Size(205, 18);
+            this.label_dernier_commentaire.Size = new System.Drawing.Size(259, 18);
             this.label_dernier_commentaire.TabIndex = 2;
-            this.label_dernier_commentaire.Text = "Le dernier commentaire posté";
+            this.label_dernier_commentaire.Text = "Prévisualisation de votre commentaire";
             // 
-            // dataGridView1
+            // dataGridViewCommenaire
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewCommenaire.AllowUserToAddRows = false;
+            this.dataGridViewCommenaire.AllowUserToDeleteRows = false;
+            this.dataGridViewCommenaire.AllowUserToOrderColumns = true;
+            this.dataGridViewCommenaire.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewCommenaire.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewCommenaire.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCommenaire.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Auteur,
-            this.vendeur});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 37);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 277);
-            this.dataGridView1.TabIndex = 3;
+            this.vendeur,
+            this.Note,
+            this.leCommentaire,
+            this.Date,
+            this.Action});
+            this.dataGridViewCommenaire.Location = new System.Drawing.Point(12, 37);
+            this.dataGridViewCommenaire.Name = "dataGridViewCommenaire";
+            this.dataGridViewCommenaire.Size = new System.Drawing.Size(776, 277);
+            this.dataGridViewCommenaire.TabIndex = 3;
+            this.dataGridViewCommenaire.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.addDernierCommentaire);
             // 
             // ID
             // 
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
+            this.ID.Width = 43;
             // 
             // Auteur
             // 
             this.Auteur.HeaderText = "Auteur";
             this.Auteur.Name = "Auteur";
+            this.Auteur.Width = 63;
             // 
             // vendeur
             // 
             this.vendeur.HeaderText = "Sur le profil de";
             this.vendeur.Name = "vendeur";
+            this.vendeur.Width = 99;
+            // 
+            // Note
+            // 
+            this.Note.HeaderText = "Note";
+            this.Note.Name = "Note";
+            this.Note.Width = 55;
+            // 
+            // leCommentaire
+            // 
+            this.leCommentaire.HeaderText = "Commentaire";
+            this.leCommentaire.Name = "leCommentaire";
+            this.leCommentaire.Visible = false;
+            this.leCommentaire.Width = 93;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.Width = 55;
+            // 
+            // Action
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "Visualiser";
+            this.Action.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Action.HeaderText = "Action";
+            this.Action.Name = "Action";
+            this.Action.Width = 43;
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(794, 37);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(222, 398);
+            this.chart1.TabIndex = 4;
+            this.chart1.Text = "chart1";
             // 
             // Commentaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1019, 450);
+            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.dataGridViewCommenaire);
             this.Controls.Add(this.label_dernier_commentaire);
             this.Controls.Add(this.tableLayoutPanel_dernier_commentaire);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Commentaire";
             this.Text = "Commentaire";
             this.Load += new System.EventHandler(this.Commentaire_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.tableLayoutPanel_dernier_commentaire.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCommenaire)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fenetre1ToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_dernier_commentaire;
         private System.Windows.Forms.Label label_date;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_auteur;
         private System.Windows.Forms.Label label_commentaire;
         private System.Windows.Forms.Label label_note;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label_dernier_commentaire;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewCommenaire;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Auteur;
         private System.Windows.Forms.DataGridViewTextBoxColumn vendeur;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Note;
+        private System.Windows.Forms.DataGridViewTextBoxColumn leCommentaire;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewButtonColumn Action;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
