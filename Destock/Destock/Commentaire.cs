@@ -163,7 +163,10 @@ namespace Destock
 
         private void BtnAnalyse_Click(object sender, EventArgs e)
         {
-            
+            AnalyseCommentaire Mafenetre = new AnalyseCommentaire(this.lien);
+            Mafenetre.Owner = this;
+            Mafenetre.MdiParent = this.lien;
+            Mafenetre.Show();
         }
     }
 }
