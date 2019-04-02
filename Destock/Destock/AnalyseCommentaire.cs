@@ -43,9 +43,6 @@ namespace Destock
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    // Insert logic here.
-                    // ... The "line" variable is a line in the file.
-                    // ... Add it to our List.
                     lines.Add(line);
                 }
             }
@@ -55,6 +52,11 @@ namespace Destock
             {
                 progressBar1.Value++;
             }
+        }
+
+        private void rechercheDansCommentaire(String lemot)
+        {
+
         }
     }
 }

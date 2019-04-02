@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +36,8 @@ namespace Destock
                 //Création de la connexion
                 GestConn = new MySqlConnection(ChaineConnexion);
                 CollCommentaire = new List<unCommentaire>();
-                addListAnnonce(doSql());
+                CollCommentaire.Clear();
+                addListCommentaire(doSql());
                 doRecherche();
                 addDernierCommentaire();
             }
@@ -83,33 +85,32 @@ namespace Destock
             }
         }
 
-        public void addListAnnonce(String requeteSQL)
+        public void addListCommentaire(String requeteSQL)
         {
             try
             {
-                CollCommentaire.Clear();
                 //Ouverture connexion
                 GestConn.Open();
                 MySqlCommand MaCommande = new MySqlCommand(requeteSQL, GestConn);
                 //Déclaration de Data Reader
-                MySqlDataReader ReaderAnnonce;
+                MySqlDataReader ReaderCommentaire;
                 //Exécution de la requête
-                ReaderAnnonce = MaCommande.ExecuteReader();
+                ReaderCommentaire = MaCommande.ExecuteReader();
                 //Nouveau contact
                 unCommentaire NouveauCommentaire;
                 
-                while (ReaderAnnonce.Read())
+                while (ReaderCommentaire.Read())
                 {
-                    NouveauCommentaire.id_comm = int.Parse(ReaderAnnonce["ID_COMM"].ToString());
-                    NouveauCommentaire.id_membre = int.Parse(ReaderAnnonce["ID_MEMBRE"].ToString());
-                    NouveauCommentaire.id_vendeur_com = int.Parse(ReaderAnnonce["ID_VENDEUR_COM"].ToString());
-                    NouveauCommentaire.txt_comm = (ReaderAnnonce["TXT_COMM"].ToString());
-                    NouveauCommentaire.date_com = (ReaderAnnonce["DATE_COMM"].ToString());
-                    NouveauCommentaire.note_comm = int.Parse(ReaderAnnonce["NOTE_COMM"].ToString());
+                    NouveauCommentaire.id_comm = int.Parse(ReaderCommentaire["ID_COMM"].ToString());
+                    NouveauCommentaire.id_membre = int.Parse(ReaderCommentaire["ID_MEMBRE"].ToString());
+                    NouveauCommentaire.id_vendeur_com = int.Parse(ReaderCommentaire["ID_VENDEUR_COM"].ToString());
+                    NouveauCommentaire.txt_comm = (ReaderCommentaire["TXT_COMM"].ToString());
+                    NouveauCommentaire.date_com = (ReaderCommentaire["DATE_COMM"].ToString());
+                    NouveauCommentaire.note_comm = int.Parse(ReaderCommentaire["NOTE_COMM"].ToString());
 
                     CollCommentaire.Add(NouveauCommentaire);
                 }
-                ReaderAnnonce.Close();
+                ReaderCommentaire.Close();
                 GestConn.Close();
             }
             catch (Exception ex)
@@ -154,19 +155,55 @@ namespace Destock
             label_date.Text = dataGridViewCommenaire.CurrentRow.Cells[5].Value.ToString();
         }
 
-        private void Recherhce(object sender, EventArgs e)
+        private void Recherche(object sender, EventArgs e)
         {
-            dataGridViewCommenaire.Rows.Clear();
-            addListAnnonce(doSql());
-            doRecherche();
+            if (textBox_recherche.Text.Length >= 3)
+            {
+                dataGridViewCommenaire.Rows.Clear();
+                CollCommentaire.Clear();
+                addListCommentaire(doSql());
+                doRecherche();
+            }
         }
 
         private void BtnAnalyse_Click(object sender, EventArgs e)
         {
-            AnalyseCommentaire Mafenetre = new AnalyseCommentaire(this.lien);
-            Mafenetre.Owner = this;
-            Mafenetre.MdiParent = this.lien;
-            Mafenetre.Show();
+            List<String> listMot = addListWord();
+            dataGridViewCommenaire.Rows.Clear();
+            CollCommentaire.Clear();
+
+            foreach (String value in listMot)
+            {
+                String requete = "SELECT * FROM commentaire WHERE TXT_COMM LIKE '%" + value + "%'";
+                //addListCommentaire(requete);
+                MessageBox.Show(requete);
+                progressBar1.Value++;
+            }
+        }
+
+        //Met tout les mots qui sont dans le fichier, dans une liste
+        private List<String> addListWord()
+        {
+            label_etat.Text = "Création de la liste de mot indésirable";
+            const String fileName = "bad-words.txt";
+            List<String> lines = new List<String>();
+            
+            using (StreamReader reader = new StreamReader(fileName))
+            {
+                // Use while not null pattern in while loop.
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    lines.Add(line);
+                }
+            }
+
+            // Print out all the lines in the list.
+            foreach (String value in lines)
+            {
+                progressBar1.Value++;
+            }
+            return lines;
         }
     }
 }

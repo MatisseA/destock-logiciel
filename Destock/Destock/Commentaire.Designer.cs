@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel_dernier_commentaire = new System.Windows.Forms.TableLayoutPanel();
             this.label_auteur = new System.Windows.Forms.Label();
             this.label_date = new System.Windows.Forms.Label();
@@ -49,6 +49,9 @@
             this.textBox_recherche = new System.Windows.Forms.TextBox();
             this.BtnAnalyse = new System.Windows.Forms.Button();
             this.label_alanyse_info = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label_etat_chargement = new System.Windows.Forms.Label();
+            this.label_etat = new System.Windows.Forms.Label();
             this.tableLayoutPanel_dernier_commentaire.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -223,9 +226,9 @@
             // 
             // Action
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "Visualiser";
-            this.Action.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = "Visualiser";
+            this.Action.DefaultCellStyle = dataGridViewCellStyle3;
             this.Action.HeaderText = "Action";
             this.Action.Name = "Action";
             this.Action.Width = 43;
@@ -247,7 +250,7 @@
             this.textBox_recherche.Name = "textBox_recherche";
             this.textBox_recherche.Size = new System.Drawing.Size(199, 20);
             this.textBox_recherche.TabIndex = 5;
-            this.textBox_recherche.TextChanged += new System.EventHandler(this.Recherhce);
+            this.textBox_recherche.TextChanged += new System.EventHandler(this.Recherche);
             // 
             // BtnAnalyse
             // 
@@ -278,12 +281,47 @@
             this.label_alanyse_info.TabIndex = 15;
             this.label_alanyse_info.Text = "Cette opération peut prendre plusieurs minutes.";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Location = new System.Drawing.Point(797, 173);
+            this.progressBar1.Maximum = 10000;
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(199, 13);
+            this.progressBar1.TabIndex = 16;
+            // 
+            // label_etat_chargement
+            // 
+            this.label_etat_chargement.AutoSize = true;
+            this.label_etat_chargement.ForeColor = System.Drawing.Color.White;
+            this.label_etat_chargement.Location = new System.Drawing.Point(794, 189);
+            this.label_etat_chargement.Name = "label_etat_chargement";
+            this.label_etat_chargement.Size = new System.Drawing.Size(67, 13);
+            this.label_etat_chargement.TabIndex = 17;
+            this.label_etat_chargement.Text = "Chargement:";
+            // 
+            // label_etat
+            // 
+            this.label_etat.AutoSize = true;
+            this.label_etat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_etat.ForeColor = System.Drawing.Color.White;
+            this.label_etat.Location = new System.Drawing.Point(857, 189);
+            this.label_etat.Name = "label_etat";
+            this.label_etat.Size = new System.Drawing.Size(25, 13);
+            this.label_etat.TabIndex = 18;
+            this.label_etat.Text = "etat";
+            // 
             // Commentaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(1019, 450);
+            this.Controls.Add(this.label_etat);
+            this.Controls.Add(this.label_etat_chargement);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label_alanyse_info);
             this.Controls.Add(this.BtnAnalyse);
             this.Controls.Add(this.textBox_recherche);
@@ -324,5 +362,8 @@
         private System.Windows.Forms.TextBox textBox_recherche;
         private System.Windows.Forms.Button BtnAnalyse;
         private System.Windows.Forms.Label label_alanyse_info;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label_etat_chargement;
+        private System.Windows.Forms.Label label_etat;
     }
 }
