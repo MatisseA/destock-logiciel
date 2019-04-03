@@ -72,7 +72,8 @@ namespace Destock
 
         public void addDernierCommentaire()
         {
-            label_commentaire.Text = dataGridViewCommenaire.CurrentRow.Cells[4].Value.ToString();
+            richTextBox_commentaire.Text = dataGridViewCommenaire.CurrentRow.Cells[4].Value.ToString();
+            label_id.Text = dataGridViewCommenaire.CurrentRow.Cells[0].Value.ToString();
         }
 
         private void doRecherche()
@@ -149,7 +150,9 @@ namespace Destock
 
         private void addDernierCommentaire(object sender, DataGridViewCellEventArgs e)
         {
-            label_commentaire.Text = dataGridViewCommenaire.CurrentRow.Cells[4].Value.ToString();
+            tableLayoutPanel_dernier_commentaire.BackColor = Color.FromArgb(224, 224, 224);
+            label_id.Text = dataGridViewCommenaire.CurrentRow.Cells[0].Value.ToString();
+            richTextBox_commentaire.Text = dataGridViewCommenaire.CurrentRow.Cells[4].Value.ToString();
             label_note.Text = dataGridViewCommenaire.CurrentRow.Cells[3].Value.ToString();
             label_auteur.Text = dataGridViewCommenaire.CurrentRow.Cells[1].Value.ToString();
             label_date.Text = dataGridViewCommenaire.CurrentRow.Cells[5].Value.ToString();
@@ -169,22 +172,24 @@ namespace Destock
         private void BtnAnalyse_Click(object sender, EventArgs e)
         {
             List<String> listMot = addListWord();
-            dataGridViewCommenaire.Rows.Clear();
-            CollCommentaire.Clear();
-
-            foreach (String value in listMot)
+            int resultat = 0;
+            tableLayoutPanel_dernier_commentaire.BackColor = Color.FromArgb(128, 255, 128);
+            foreach (String leMot in listMot)
             {
-                String requete = "SELECT * FROM commentaire WHERE TXT_COMM LIKE '%" + value + "%'";
-                //addListCommentaire(requete);
-                MessageBox.Show(requete);
-                progressBar1.Value++;
+                resultat = richTextBox_commentaire.Find(leMot, 0, richTextBox_commentaire.Text.Length, RichTextBoxFinds.MatchCase);
+            }
+            if (resultat > 0)
+            {
+                tableLayoutPanel_dernier_commentaire.BackColor = Color.FromArgb(255, 128, 128);
+            }
+            else { 
+                tableLayoutPanel_dernier_commentaire.BackColor = Color.FromArgb(128, 255, 128);
             }
         }
 
         //Met tout les mots qui sont dans le fichier, dans une liste
         private List<String> addListWord()
         {
-            label_etat.Text = "Création de la liste de mot indésirable";
             const String fileName = "bad-words.txt";
             List<String> lines = new List<String>();
             
@@ -197,13 +202,36 @@ namespace Destock
                     lines.Add(line);
                 }
             }
-
-            // Print out all the lines in the list.
-            foreach (String value in lines)
-            {
-                progressBar1.Value++;
-            }
             return lines;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Met l'annonce en statut premium (couleur jaune à l'affichage)
+            try
+            {
+                //Ouverture connexion
+                GestConn.Open();
+                //Requete SQL
+                String ReqSql = "DELETE FROM commentaire WHERE ID_COMM=" + label_id.Text;
+                MySqlCommand MaCommande = new MySqlCommand(ReqSql, GestConn);
+                //Déclaration de Data Reader
+                MySqlDataReader ReaderMembre;
+                //Exécution de la requête
+                ReaderMembre = MaCommande.ExecuteReader();
+                ReaderMembre.Close();
+                GestConn.Close();
+                MessageBox.Show("Le commentaire est maintenant supprimé.");
+                addListCommentaire(doSql());
+                doRecherche();
+                dataGridViewCommenaire.Rows.Clear();
+                CollCommentaire.Clear();
+                addDernierCommentaire();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur : " + ex.Message);
+            }
         }
     }
 }

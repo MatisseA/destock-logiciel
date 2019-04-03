@@ -72,6 +72,8 @@
             // 
             this.dataGridViewAnnonce.AllowUserToAddRows = false;
             this.dataGridViewAnnonce.AllowUserToDeleteRows = false;
+            this.dataGridViewAnnonce.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewAnnonce.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewAnnonce.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewAnnonce.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(46)))), ((int)(((byte)(54)))));
@@ -175,9 +177,11 @@
             // 
             // progressBar_chargement
             // 
+            this.progressBar_chargement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar_chargement.Location = new System.Drawing.Point(275, 563);
             this.progressBar_chargement.Name = "progressBar_chargement";
-            this.progressBar_chargement.Size = new System.Drawing.Size(747, 13);
+            this.progressBar_chargement.Size = new System.Drawing.Size(788, 13);
             this.progressBar_chargement.Step = 1;
             this.progressBar_chargement.TabIndex = 5;
             // 

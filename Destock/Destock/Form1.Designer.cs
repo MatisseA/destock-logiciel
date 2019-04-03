@@ -38,9 +38,10 @@
             this.TSMgerer = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMAnnonce = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMMembre = new System.Windows.Forms.ToolStripMenuItem();
+            this.commentaireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.TSStext = new System.Windows.Forms.ToolStripStatusLabel();
-            this.commentaireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statistiquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +51,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
-            this.TSMgerer});
+            this.TSMgerer,
+            this.statistiquesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -111,16 +113,23 @@
             // TSMAnnonce
             // 
             this.TSMAnnonce.Name = "TSMAnnonce";
-            this.TSMAnnonce.Size = new System.Drawing.Size(180, 22);
+            this.TSMAnnonce.Size = new System.Drawing.Size(147, 22);
             this.TSMAnnonce.Text = "Annonce";
             this.TSMAnnonce.Click += new System.EventHandler(this.TSMAnnonce_Click);
             // 
             // TSMMembre
             // 
             this.TSMMembre.Name = "TSMMembre";
-            this.TSMMembre.Size = new System.Drawing.Size(180, 22);
+            this.TSMMembre.Size = new System.Drawing.Size(147, 22);
             this.TSMMembre.Text = "Membre";
             this.TSMMembre.Click += new System.EventHandler(this.TSMMembre_Click);
+            // 
+            // commentaireToolStripMenuItem
+            // 
+            this.commentaireToolStripMenuItem.Name = "commentaireToolStripMenuItem";
+            this.commentaireToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.commentaireToolStripMenuItem.Text = "Commentaire";
+            this.commentaireToolStripMenuItem.Click += new System.EventHandler(this.commentaireToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -140,12 +149,12 @@
             this.TSStext.Size = new System.Drawing.Size(139, 17);
             this.TSStext.Text = "Vous n\'êtes pas connecté";
             // 
-            // commentaireToolStripMenuItem
+            // statistiquesToolStripMenuItem
             // 
-            this.commentaireToolStripMenuItem.Name = "commentaireToolStripMenuItem";
-            this.commentaireToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.commentaireToolStripMenuItem.Text = "Commentaire";
-            this.commentaireToolStripMenuItem.Click += new System.EventHandler(this.commentaireToolStripMenuItem_Click);
+            this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
+            this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.statistiquesToolStripMenuItem.Text = "Statistiques";
+            this.statistiquesToolStripMenuItem.Click += new System.EventHandler(this.statistiquesToolStripMenuItem_Click);
             // 
             // FormPrincipale
             // 
@@ -157,7 +166,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormPrincipale";
             this.Text = "ADMINISTRATION DESKTOP";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -185,6 +194,7 @@
         public System.Windows.Forms.ToolStripMenuItem TSMAnnonce;
         public System.Windows.Forms.ToolStripMenuItem TSMMembre;
         private System.Windows.Forms.ToolStripMenuItem commentaireToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem statistiquesToolStripMenuItem;
     }
 }
 

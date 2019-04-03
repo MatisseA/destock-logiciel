@@ -63,12 +63,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnalyseCommentaire.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AnalyseCommentaire.Designer.cs">
-      <DependentUpon>AnalyseCommentaire.cs</DependentUpon>
-    </Compile>
     <Compile Include="Annonce.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,9 +107,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AnalyseCommentaire.resx">
-      <DependentUpon>AnalyseCommentaire.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Statistique.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statistique.Designer.cs">
+      <DependentUpon>Statistique.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Annonce.resx">
       <DependentUpon>Annonce.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +144,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Statistique.resx">
+      <DependentUpon>Statistique.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
