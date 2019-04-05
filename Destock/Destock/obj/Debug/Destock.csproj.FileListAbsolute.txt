@@ -64,3 +64,4 @@ C:\Users\Gevyoo\Desktop\projet_Destock\destock-logiciel\Destock\Destock\obj\Debu
 E:\BTS\PPE\destock-logiciel\Destock\Destock\obj\Debug\Destock.Commentaire.resources
 C:\Users\Gevyoo\Desktop\projet_Destock\destock-logiciel\Destock\Destock\obj\Debug\Destock.Commentaire.resources
 C:\Users\Gevyoo\Desktop\projet_Destock\destock-logiciel\Destock\Destock\obj\Debug\Destock.Statistique.resources
+E:\BTS\PPE\destock-logiciel\Destock\Destock\obj\Debug\Destock.Statistique.resources
