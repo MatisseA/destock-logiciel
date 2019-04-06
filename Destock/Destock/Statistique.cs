@@ -166,6 +166,77 @@ namespace Destock
             }
         }
 
+        private void statNbCommentaireCommandePlainte()
+        {
+            int nbCommentaire = count("commentaire", "");
+            int nbCommande = count("commande", "");
+            int nbPlainte = count("plainte", "");
+
+            legend1 = "Commentaire";
+            legend2 = "Commande";
+            legend3 = "Plainte";
+            titreGraphique = "Nombre de commentaire, commande et plainte";
+
+            //Set les nouveaux noms
+            setNameSeries();
+
+
+            changeEnabledSeries(true, true, true);
+            changeChartType("column");
+
+            //Change les données du tableau de stats
+            graphique.Series[legend1].Points.AddXY("", nbCommentaire);
+            graphique.Series[legend2].Points.AddXY("", nbCommande);
+            graphique.Series[legend3].Points.AddXY("", nbPlainte);
+        }
+
+        private void statNotesCommentaires()
+        {
+            chargeList("commentaire", "", "NOTE_COMM");
+
+            legend1 = "Note";
+            titreGraphique = "Notes associés aux commentaires";
+
+            setNameSeries();
+
+            changeEnabledSeries(true, false, false);
+            changeChartType("radar");
+
+            int total1 = 0;
+            int total2 = 0;
+            int total3 = 0;
+            int total4 = 0;
+            int total5 = 0;
+            //Change les données du tableau de stats
+            foreach (double lemontant in listInt)
+            {
+                switch (lemontant)
+                {
+                    case 1:
+                        total1++;
+                        break;
+                    case 2:
+                        total2++;
+                        break;
+                    case 3:
+                        total3++;
+                        break;
+                    case 4:
+                        total4++;
+                        break;
+                    case 5:
+                        total5++;
+                        break;
+                } 
+            }
+            graphique.Series[legend1].Points.AddXY("1", total1);
+            graphique.Series[legend1].Points.AddXY("2", total2);
+            graphique.Series[legend1].Points.AddXY("3", total3);
+            graphique.Series[legend1].Points.AddXY("4", total4);
+            graphique.Series[legend1].Points.AddXY("5", total5);
+
+        }
+
         //Permet de changer l'etats des Series
         private void changeEnabledSeries(bool series1, bool series2, bool series3)
         {
@@ -218,12 +289,12 @@ namespace Destock
 
         public void chargeList(String from, String where, String what)
         {
+            listInt.Clear();
             String requete = "SELECT * FROM " + from;
             if(where != "")
             {
                 requete = requete + " WHERE " + where;
             }
-            requete = requete + " ORDER BY ID_VIR";
             try
             {
                 //Ouverture connexion
@@ -277,6 +348,11 @@ namespace Destock
                     graphique.Series[legend2].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedArea;
                     graphique.Series[legend3].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedArea;
                     break;
+                case "radar":
+                    graphique.Series[legend1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Radar;
+                    graphique.Series[legend2].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Radar;
+                    graphique.Series[legend3].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Radar;
+                    break;
                 default:
                     graphique.Series[legend1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
                     graphique.Series[legend2].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
@@ -314,6 +390,12 @@ namespace Destock
                     break;
                 case "Argent gagné par l'entreprise":
                     statArgentDestock();
+                    break;
+                case "Nombre de commentaire, commande, plainte":
+                    statNbCommentaireCommandePlainte();
+                    break;
+                case "Notes associées aux commentaires":
+                    statNotesCommentaires();
                     break;
                 default:
                     MessageBox.Show("Erreur lors du chargement du graphique.");

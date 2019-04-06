@@ -44,7 +44,8 @@
             // 
             // graphique
             // 
-            this.graphique.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.graphique.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             chartArea1.Name = "ChartArea1";
             this.graphique.ChartAreas.Add(chartArea1);
@@ -55,7 +56,7 @@
             this.graphique.Location = new System.Drawing.Point(12, 12);
             this.graphique.Name = "graphique";
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             series1.YValuesPerPoint = 2;
@@ -78,23 +79,27 @@
             // 
             // comboBox_choix
             // 
+            this.comboBox_choix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox_choix.FormattingEnabled = true;
             this.comboBox_choix.Items.AddRange(new object[] {
             "Pourcentage d\'annonces premium",
             "Annonces en lignes/supprimées",
             "Pourcentage de membre administrateur",
             "Pourcentage de membre validé",
-            "Argent gagné par l\'entreprise"});
-            this.comboBox_choix.Location = new System.Drawing.Point(475, 445);
+            "Argent gagné par l\'entreprise",
+            "Nombre de commentaire, commande, plainte",
+            "Notes associées aux commentaires"});
+            this.comboBox_choix.Location = new System.Drawing.Point(475, 447);
             this.comboBox_choix.Name = "comboBox_choix";
             this.comboBox_choix.Size = new System.Drawing.Size(214, 21);
             this.comboBox_choix.TabIndex = 1;
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(538, 429);
+            this.label1.Location = new System.Drawing.Point(538, 431);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 13);
             this.label1.TabIndex = 2;
