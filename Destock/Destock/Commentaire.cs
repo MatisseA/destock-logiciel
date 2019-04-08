@@ -173,12 +173,16 @@ namespace Destock
         {
             List<String> listMot = addListWord();
             int resultat = 0;
-            tableLayoutPanel_dernier_commentaire.BackColor = Color.FromArgb(128, 255, 128);
+            Boolean trouver = false;
             foreach (String leMot in listMot)
             {
                 resultat = richTextBox_commentaire.Find(leMot, 0, richTextBox_commentaire.Text.Length, RichTextBoxFinds.MatchCase);
+                if (resultat > 0)
+                {
+                    trouver = true;
+                }
             }
-            if (resultat > 0)
+            if (trouver)
             {
                 tableLayoutPanel_dernier_commentaire.BackColor = Color.FromArgb(255, 128, 128);
             }
