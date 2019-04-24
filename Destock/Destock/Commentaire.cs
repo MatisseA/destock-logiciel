@@ -177,12 +177,14 @@ namespace Destock
             foreach (String leMot in listMot)
             {
                 resultat = richTextBox_commentaire.Find(leMot, 0, richTextBox_commentaire.Text.Length, RichTextBoxFinds.MatchCase);
+                
                 if (resultat > 0)
                 {
+                    MessageBox.Show("Possible mot dans le commentaire: " + leMot);
                     trouver = true;
                 }
             }
-            if (trouver)
+            if (trouver == true)
             {
                 tableLayoutPanel_dernier_commentaire.BackColor = Color.FromArgb(255, 128, 128);
             }

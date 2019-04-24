@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel_dernier_commentaire = new System.Windows.Forms.TableLayoutPanel();
+            this.richTextBox_commentaire = new System.Windows.Forms.RichTextBox();
             this.label_auteur = new System.Windows.Forms.Label();
-            this.label_date = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label_note = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_date = new System.Windows.Forms.Label();
+            this.label_id = new System.Windows.Forms.Label();
             this.label_dernier_commentaire = new System.Windows.Forms.Label();
             this.dataGridViewCommenaire = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,15 +51,12 @@
             this.textBox_recherche = new System.Windows.Forms.TextBox();
             this.BtnAnalyse = new System.Windows.Forms.Button();
             this.label_alanyse_info = new System.Windows.Forms.Label();
-            this.richTextBox_commentaire = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label_id = new System.Windows.Forms.Label();
             this.tableLayoutPanel_dernier_commentaire.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCommenaire)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCommenaire)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_dernier_commentaire
@@ -79,6 +79,20 @@
             this.tableLayoutPanel_dernier_commentaire.Size = new System.Drawing.Size(776, 100);
             this.tableLayoutPanel_dernier_commentaire.TabIndex = 1;
             // 
+            // richTextBox_commentaire
+            // 
+            this.richTextBox_commentaire.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox_commentaire.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.richTextBox_commentaire.EnableAutoDragDrop = true;
+            this.richTextBox_commentaire.Location = new System.Drawing.Point(158, 36);
+            this.richTextBox_commentaire.Name = "richTextBox_commentaire";
+            this.richTextBox_commentaire.ReadOnly = true;
+            this.richTextBox_commentaire.Size = new System.Drawing.Size(615, 61);
+            this.richTextBox_commentaire.TabIndex = 19;
+            this.richTextBox_commentaire.Text = "Commentaire";
+            // 
             // label_auteur
             // 
             this.label_auteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -91,18 +105,6 @@
             this.label_auteur.TabIndex = 0;
             this.label_auteur.Text = "Auteur";
             this.label_auteur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_date
-            // 
-            this.label_date.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label_date.ForeColor = System.Drawing.Color.Black;
-            this.label_date.Location = new System.Drawing.Point(3, 0);
-            this.label_date.Name = "label_date";
-            this.label_date.Size = new System.Drawing.Size(545, 27);
-            this.label_date.TabIndex = 1;
-            this.label_date.Text = "Date";
-            this.label_date.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
             // 
@@ -141,6 +143,49 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.7561F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.2439F));
+            this.tableLayoutPanel2.Controls.Add(this.label_date, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label_id, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(158, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(615, 27);
+            this.tableLayoutPanel2.TabIndex = 20;
+            // 
+            // label_date
+            // 
+            this.label_date.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_date.ForeColor = System.Drawing.Color.Black;
+            this.label_date.Location = new System.Drawing.Point(3, 0);
+            this.label_date.Name = "label_date";
+            this.label_date.Size = new System.Drawing.Size(545, 27);
+            this.label_date.TabIndex = 1;
+            this.label_date.Text = "Date";
+            this.label_date.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_id
+            // 
+            this.label_id.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_id.AutoSize = true;
+            this.label_id.ForeColor = System.Drawing.Color.Black;
+            this.label_id.Location = new System.Drawing.Point(555, 0);
+            this.label_id.Name = "label_id";
+            this.label_id.Size = new System.Drawing.Size(57, 27);
+            this.label_id.TabIndex = 2;
+            this.label_id.Text = "ID";
             // 
             // label_dernier_commentaire
             // 
@@ -214,9 +259,9 @@
             // 
             // Action
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "Visualiser";
-            this.Action.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "Visualiser";
+            this.Action.DefaultCellStyle = dataGridViewCellStyle2;
             this.Action.HeaderText = "Action";
             this.Action.Name = "Action";
             this.Action.Width = 43;
@@ -269,20 +314,6 @@
             this.label_alanyse_info.TabIndex = 15;
             this.label_alanyse_info.Text = "Vérifie si le commentaire ne contient pas de mots interdits.\r\n";
             // 
-            // richTextBox_commentaire
-            // 
-            this.richTextBox_commentaire.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox_commentaire.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.richTextBox_commentaire.EnableAutoDragDrop = true;
-            this.richTextBox_commentaire.Location = new System.Drawing.Point(158, 36);
-            this.richTextBox_commentaire.Name = "richTextBox_commentaire";
-            this.richTextBox_commentaire.ReadOnly = true;
-            this.richTextBox_commentaire.Size = new System.Drawing.Size(615, 61);
-            this.richTextBox_commentaire.TabIndex = 19;
-            this.richTextBox_commentaire.Text = "Commentaire";
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(76)))), ((int)(((byte)(101)))));
@@ -300,37 +331,6 @@
             this.button1.Text = "Supprimer";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.7561F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.2439F));
-            this.tableLayoutPanel2.Controls.Add(this.label_date, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label_id, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(158, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(615, 27);
-            this.tableLayoutPanel2.TabIndex = 20;
-            // 
-            // label_id
-            // 
-            this.label_id.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_id.AutoSize = true;
-            this.label_id.ForeColor = System.Drawing.Color.Black;
-            this.label_id.Location = new System.Drawing.Point(554, 0);
-            this.label_id.Name = "label_id";
-            this.label_id.Size = new System.Drawing.Size(58, 27);
-            this.label_id.TabIndex = 2;
-            this.label_id.Text = "ID";
             // 
             // Commentaire
             // 
@@ -352,9 +352,9 @@
             this.tableLayoutPanel_dernier_commentaire.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCommenaire)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCommenaire)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
