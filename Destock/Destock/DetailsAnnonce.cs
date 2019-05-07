@@ -209,5 +209,13 @@ namespace Destock
                 MessageBox.Show("Erreur : " + ex.Message);
             }
         }
+
+        private void BtnMembre_Click(object sender, EventArgs e)
+        {
+            DétailsMembres Mafenetre = new DétailsMembres(id_membre.ToString(), this.lien);
+            Mafenetre.Owner = this;
+            Mafenetre.MdiParent = this.lien;
+            Mafenetre.Show();
+        }
     }
 }

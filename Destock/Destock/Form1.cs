@@ -45,10 +45,8 @@ namespace Destock
 
         private void TSMDeco_Click(object sender, EventArgs e)
         {
-            TSMConn.Enabled = true;
-            TSMDeco.Enabled = false;
-            TSMAnnonce.Enabled = false;
-            TSMMembre.Enabled = false;
+            TSMgerer.Enabled = false;
+            statistiquesToolStripMenuItem.Enabled = false;
             TSStext.Text = "Vous n'êtes pas connecté";
             MessageBox.Show("Vous êtes déconnecté");
         }
@@ -80,6 +78,14 @@ namespace Destock
         private void statistiquesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Statistique Mafenetre = new Statistique(this);
+            Mafenetre.Owner = this;
+            Mafenetre.MdiParent = this;
+            Mafenetre.Show();
+        }
+
+        private void plainteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Plainte Mafenetre = new Plainte(this);
             Mafenetre.Owner = this;
             Mafenetre.MdiParent = this;
             Mafenetre.Show();

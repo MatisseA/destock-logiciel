@@ -123,6 +123,8 @@ namespace Destock
                     lien.TSMMembre.Enabled = true;
                     lien.TSStext.Text = "Vous êtes connecté en tant que " + CollAdmin[i].nom + " " + CollAdmin[i].prenom;
                     this.Close();
+                    lien.TSMgerer.Enabled = true;
+                    lien.statistiquesToolStripMenuItem.Enabled = true;
                     MessageBox.Show("Vous êtes connecté");
                     verif = true;
                 }

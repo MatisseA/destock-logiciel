@@ -23,7 +23,6 @@ namespace Destock
         public List<Admin> CollAdmin;
         public String ChaineConnexion;
         public MySqlConnection GestConn;
-        public DataView dv;
 
         private void Membre_Load(object sender, EventArgs e)
         {
@@ -34,15 +33,9 @@ namespace Destock
                 //Création de la connexion
                 GestConn = new MySqlConnection(ChaineConnexion);
                 CollAdmin = new List<Admin>();
-                ChargementCollectionAdmin();
+                ChargementCollectionAdmin(doSql());
 
-                int i = 0;
-                foreach (Admin unAdmin in CollAdmin)
-                {
-                    DataGridView1.Rows.Add(unAdmin.id.ToString(), unAdmin.nom.ToString(), unAdmin.prenom.ToString(), unAdmin.mail.ToString());
-                    i++;
-                }
-                TxtNbMembre.Text = i + " membres affichés";
+                DoRecherche();
 
             }
             catch (Exception ex) { MessageBox.Show("Erreur Load : " + ex.Message); }
@@ -67,7 +60,7 @@ namespace Destock
             public double argent;
         }
 
-        private void ChargementCollectionAdmin()
+        private void ChargementCollectionAdmin(String requeteSQL)
         {
             try
             {
@@ -75,8 +68,7 @@ namespace Destock
                 //Ouverture connexion
                 GestConn.Open();
                 //Requete SQL
-                String ReqSql = "SELECT * FROM membre ORDER BY ID_MEMBRE";
-                MySqlCommand MaCommande = new MySqlCommand(ReqSql, GestConn);
+                MySqlCommand MaCommande = new MySqlCommand(requeteSQL, GestConn);
                 //Déclaration de Data Reader
                 MySqlDataReader ReaderAdmin;
                 //Exécution de la requête
@@ -114,23 +106,54 @@ namespace Destock
             }
         }
 
-        private void BTNAfficher_Click(object sender, EventArgs e)
+        public String doSql()
         {
-            DataGridView1.Rows.Clear();
-            int i = 0;
+            String requete;
 
-            foreach(Admin unAdmin in CollAdmin)
+            requete = "SELECT * FROM membre WHERE ID_MEMBRE > 0";
+
+            if (TextNom.Text != "")
             {
-                DataGridView1.Rows.Add( unAdmin.id.ToString(), unAdmin.nom.ToString(), unAdmin.prenom.ToString(), unAdmin.mail.ToString());
+                requete = requete + " AND NOM_MEMBRE LIKE '%" + TextNom.Text + "%'";
+            }
+            if (TextBoxPrenom.Text != "")
+            {
+                requete = requete + " AND PRENOM_MEMBRE LIKE '%" + TextBoxPrenom.Text + "%'";
+            }
+            if (TextBoxEmail.Text != "")
+            {
+                requete = requete + " AND EMAIL_MEMBRE LIKE '%" + TextBoxEmail.Text + "%'";
+            }
+            
+
+            requete = requete + " ORDER BY ID_MEMBRE";
+            return requete;
+        }
+
+        public void DoRecherche()
+        {
+            int i = 0;
+            foreach (Admin unAdmin in CollAdmin)
+            {
+                DataGridView1.Rows.Add(unAdmin.id.ToString(), unAdmin.nom.ToString(), unAdmin.prenom.ToString(), unAdmin.mail.ToString());
                 i++;
             }
             TxtNbMembre.Text = i + " membres affichés";
-
         }
 
-        private void TextNom_TextChanged(object sender, EventArgs e)
+        private void BTN_Afficher(object sender, EventArgs e)
         {
-            
+            DataGridView1.Rows.Clear();
+            ChargementCollectionAdmin(doSql());
+            DoRecherche();
+        }
+
+        private void changeActiviteDetail(object sender, DataGridViewCellEventArgs e)
+        {
+            DétailsMembres Mafenetre = new DétailsMembres(DataGridView1.CurrentRow.Cells[0].Value.ToString(), this.lien);
+            Mafenetre.Owner = this;
+            Mafenetre.MdiParent = this.lien;
+            Mafenetre.Show();
         }
     }
 }

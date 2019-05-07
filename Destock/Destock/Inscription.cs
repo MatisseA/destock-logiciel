@@ -211,7 +211,7 @@ namespace Destock
             NvContact.login = TBLogin.Text;
             NvContact.type = "ADMINISTRATEUR";
             NvContact.photo = "null";
-            NvContact.desc = "";
+            NvContact.desc = "null";
             NvContact.valide = 1;
             NvContact.argent = 0;
 

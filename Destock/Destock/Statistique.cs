@@ -109,7 +109,7 @@ namespace Destock
             int nbTotal = count("membre", "TYPE_MEMBRE = 'UTILISATEUR'");
 
             legend1 = "Membre";
-            titreGraphique = "Poucentage de membre validé";
+            titreGraphique = "Poucentage de membre administrateur";
 
             //Set les nouveaux noms
             setNameSeries();
@@ -120,7 +120,7 @@ namespace Destock
 
             //Change les données du tableau de stats
             graphique.Series[legend1].Points.AddXY("Utilisateur - ("+nbTotal+")", nbTotal);
-            graphique.Series[legend1].Points.AddXY("Premium - (" + nbAdmin + ")", nbAdmin);
+            graphique.Series[legend1].Points.AddXY("Administrateur - (" + nbAdmin + ")", nbAdmin);
         }
 
         private void statMembreValide()
@@ -129,7 +129,7 @@ namespace Destock
             int nbTotal = count("membre", "VALIDE_MEMBRE = 0");
 
             legend1 = "Membre";
-            titreGraphique = "Poucentage de membre administrateur";
+            titreGraphique = "Poucentage de membre validé";
 
             //Set les nouveaux noms
             setNameSeries();
@@ -208,7 +208,7 @@ namespace Destock
             int total4 = 0;
             int total5 = 0;
             //Change les données du tableau de stats
-            foreach (double lemontant in listInt)
+            foreach (int lemontant in listInt)
             {
                 switch (lemontant)
                 {
